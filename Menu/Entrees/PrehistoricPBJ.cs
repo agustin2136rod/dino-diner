@@ -1,4 +1,9 @@
-﻿using System.Collections.Generic;
+﻿/*
+ * Agustin Rodriguez 
+ * Dino-Diner
+ * PrehistoricPBJ.cs
+ */
+using System.Collections.Generic;
 
 namespace DinoDiner.Menu.Entrees
 {

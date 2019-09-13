@@ -1,16 +1,34 @@
-﻿using System;
+﻿/* 
+ * Agustin Rodriguez 
+ * Dino-Diner
+ * DinoNuggets.cs
+ */
+using System;
 using System.Collections.Generic;
 using System.Text;
-using DinoDIner.Menu.Entrees;
+using DinoDiner.Menu.Entrees;
 
-namespace DinoDIner.Menu.Entrees
+namespace DinoDiner.Menu.Entrees
 {
+    /// <summary>
+    /// This class implements the menu item DinoNuggets at Dino-Diner
+    /// </summary>
     public class DinoNuggets
     {
-
+        /// <summary>
+        /// gets the price of the menu item and assigns it to the double Price
+        /// </summary>
         public double Price { get; set; }
+
+        /// <summary>
+        /// gets the calories of the menu item and assigns it to Calories 
+        /// </summary>
         public uint Calories { get; set; }
 
+        /// <summary>
+        /// Contains the list of ingredients (chicken nuggets) 
+        /// Menu item comes with 6 
+        /// </summary>
         public List<string> Ingredients
         {
             get
@@ -20,12 +38,19 @@ namespace DinoDIner.Menu.Entrees
             }
         }
 
+        /// <summary>
+        /// Initializes DinoNuggets with the price and calories of the menu item
+        /// </summary>
         public DinoNuggets()
         {
             this.Price = 4.25;
             this.Calories = 354;
         }
 
+        /// <summary>
+        /// The user has the option to add nuggets
+        /// if the user adds nuggets, the price and calories are updated with each nugget added
+        /// </summary>
         public void AddNugget()
         {
             this.Price += .25;
