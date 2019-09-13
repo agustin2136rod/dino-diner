@@ -1,7 +1,5 @@
-﻿/* 
- * Agustin Rodriguez 
- * Dino-Diner
- * DinoNuggets.cs
+﻿/* DinoNuggets.cs
+ * Author: Agustin Rodriguez
  */
 using System;
 using System.Collections.Generic;
@@ -20,6 +18,8 @@ namespace DinoDiner.Menu.Entrees
         /// </summary>
         public double Price { get; set; }
 
+        private int Count = 6;
+
         /// <summary>
         /// gets the calories of the menu item and assigns it to Calories 
         /// </summary>
@@ -33,9 +33,14 @@ namespace DinoDiner.Menu.Entrees
         {
             get
             {
-                List<string> ingredients = new List<string>() { "Chicken Nugget", "Chicken Nugget", "Chicken Nugget", "Chicken Nugget", "Chicken Nugget", "Chicken Nugget" };
+                List<string> ingredients = new List<string>();
+                for (int i = 0; i < Count; i++) {
+                     ingredients.Add("Chicken Nugget");
+                    
+                }
                 return ingredients;
             }
+
         }
 
         /// <summary>
@@ -55,7 +60,7 @@ namespace DinoDiner.Menu.Entrees
         {
             this.Price += .25;
             this.Calories += 59;
-            this.Ingredients.Add("Chicken Nugget");
+            this.Count++;
         }
     }
 }

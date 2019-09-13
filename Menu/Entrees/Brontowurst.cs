@@ -1,7 +1,5 @@
-﻿/*
- * Agustin Rodriguez 
- * Dino-Diner
- * Brontowurst.cs
+﻿/* Brontowurst.cs
+ * Author: Agustin Rodriguez
  */
 using System;
 using System.Collections.Generic;
@@ -17,17 +15,17 @@ namespace DinoDiner.Menu.Entrees
         /// <summary>
         /// The user has the option of whether or not to include a bun
         /// </summary>
-        private bool bun = true;
+        private bool Bun = true;
 
         /// <summary>
         /// The user has the option of whether or not to include peppers
         /// </summary>
-        private bool peppers = true;
+        private bool Peppers = true;
 
         /// <summary>
         /// The user has the option of whether or not to include onions
         /// </summary>
-        private bool onion = true;
+        private bool Onion = true;
 
         /// <summary>
         /// gets the price of the menu item
@@ -47,9 +45,9 @@ namespace DinoDiner.Menu.Entrees
             get
             {
                 List<string> ingredients = new List<string>() { "Brautwurst" };
-                if (bun) ingredients.Add("Whole Wheat Bun");
-                if (peppers) ingredients.Add("Peppers");
-                if (onion) ingredients.Add("Onion");
+                if (Bun) ingredients.Add("Whole Wheat Bun");
+                if (Peppers) ingredients.Add("Peppers");
+                if (Onion) ingredients.Add("Onion");
                 return ingredients;
             }
         }
@@ -68,7 +66,7 @@ namespace DinoDiner.Menu.Entrees
         /// </summary>
         public void HoldBun()
         {
-            this.bun = false;
+            this.Bun = false;
         }
 
         /// <summary>
@@ -76,7 +74,7 @@ namespace DinoDiner.Menu.Entrees
         /// </summary>
         public void HoldPeppers()
         {
-            this.peppers = false;
+            this.Peppers = false;
         }
 
         /// <summary>
@@ -84,7 +82,7 @@ namespace DinoDiner.Menu.Entrees
         /// </summary>
         public void HoldOnion()
         {
-            this.onion = false;
+            this.Onion = false;
         }
     }
 }
