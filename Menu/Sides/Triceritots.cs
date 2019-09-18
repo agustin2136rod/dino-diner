@@ -22,7 +22,7 @@ namespace DinoDiner.Menu.Sides
                     case Size.Medium:
                         Price = 1.45;
                         Calories = 410;
-                        break;
+                        break; 
                     case Size.Large:
                         Price = 1.95;
                         Calories = 590;
