@@ -1,11 +1,17 @@
-﻿using System;
+﻿/* Entree.cs
+ * Edited by: Agustin Rodriguez 
+ */
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace DinoDiner.Menu.Entrees
 {
 
-    public abstract class Side
+    /// <summary>
+    /// non changeable class that deals with price, calories and ingredients
+    /// </summary>
+    public abstract class Entree
     {
         /// <summary>
         /// Gets and sets the price
@@ -20,9 +26,9 @@ namespace DinoDiner.Menu.Entrees
         /// <summary>
         /// Gets the ingredients list
         /// </summary>
-        public List<string> Ingredients { get; }
+        public abstract List<string> Ingredients { get; }
 
-        
+
 
     }
 }

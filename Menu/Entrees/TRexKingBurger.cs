@@ -11,7 +11,7 @@ namespace DinoDiner.Menu.Entrees
     /// This class is implementing the TRexKingBurger on the menu at DinoDiner
     /// the burger is constructed in this class
     /// </summary>
-    public class TRexKingBurger
+    public class TRexKingBurger : Entree
     {
         /// <summary>
         /// the user has the option of whether or not to have a bun
@@ -67,7 +67,7 @@ namespace DinoDiner.Menu.Entrees
         /// This list contains all of the ingredients of the TRexKingBurger
         /// each ingredient with the exception of three steadburger patties are optional per the user
         /// </summary>
-        public List<string> Ingredients
+        public override List<string> Ingredients
         {
             get
             {

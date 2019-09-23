@@ -1,12 +1,25 @@
-﻿using System;
+﻿/* Triceritots.cs
+ * Agustin Rodriguez 
+ */
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace DinoDiner.Menu.Sides
 {
+    /// <summary>
+    /// this class implements the side item Triceritots in DinoDiner. The class inherits from Side
+    /// </summary>
     public class Triceritots : Side
     {
-        private Size size;
+        /// <summary>
+        /// size object of the food item
+        /// </summary>
+        protected Size size;
+
+        /// <summary>
+        /// gets and sets the size, price and calories of the side item depending on what value is brought in
+        /// </summary>
         public override Size Size
         {
             
@@ -34,13 +47,17 @@ namespace DinoDiner.Menu.Sides
                 return size;
             }
         }
+
+        /// <summary>
+        /// initializes the class with size, ingredients, and calories
+        /// </summary>
         public Triceritots()
         {
             Price = 0.99;
             Calories = 352;
             ingredients.Add("Potato");
-            ingredients.Add("Breading");
             ingredients.Add("Vegetable Oil");
+            ingredients.Add("Salt");
         }
     }
 }

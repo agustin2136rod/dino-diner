@@ -1,10 +1,15 @@
-﻿using System;
+﻿/* Side.cs
+ * Edited by: Agustin Rodriguez
+ */
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace DinoDiner.Menu.Sides
 {
-
+    /// <summary>
+    /// enum for the difference sizes of items
+    /// </summary>
     public enum Size
     {
         Small,
@@ -12,6 +17,9 @@ namespace DinoDiner.Menu.Sides
         Large
     }
 
+    /// <summary>
+    /// abstract class that is not changeable. Deals with ingredients, price, and calories. Gets and sets them all
+    /// </summary>
     public abstract class Side
     {
 

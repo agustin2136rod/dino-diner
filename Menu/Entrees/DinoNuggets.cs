@@ -11,7 +11,7 @@ namespace DinoDiner.Menu.Entrees
     /// <summary>
     /// This class implements the menu item DinoNuggets at Dino-Diner
     /// </summary>
-    public class DinoNuggets
+    public class DinoNuggets : Entree
     {
         /// <summary>
         /// gets the price of the menu item and assigns it to the double Price
@@ -29,7 +29,7 @@ namespace DinoDiner.Menu.Entrees
         /// Contains the list of ingredients (chicken nuggets) 
         /// Menu item comes with 6 
         /// </summary>
-        public List<string> Ingredients
+        public override List<string> Ingredients
         {
             get
             {

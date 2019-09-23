@@ -10,7 +10,7 @@ namespace DinoDiner.Menu.Entrees
     /// <summary>
     /// This class implements the menu item SteakosaurusBurger in Dino-Diner. The burger is created
     /// </summary>
-    public class SteakosaurusBurger
+    public class SteakosaurusBurger : Entree
     {
         /// <summary>
         /// user has option to have a bun
@@ -46,7 +46,7 @@ namespace DinoDiner.Menu.Entrees
         /// List of ingredients to the burger that is depicted by what the user wants on the burger except 
         /// for the Steakburger pattie that comes with the menu item
         /// </summary>
-        public List<string> Ingredients
+        public override List<string> Ingredients
         {
             get
             {

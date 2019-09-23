@@ -8,7 +8,7 @@ namespace DinoDiner.Menu.Entrees
     /// <summary>
     /// This class implements the menu item Peanut butter and jelly sandwich in Dino-Diner
     /// </summary>
-    public class PrehistoricPBJ
+    public class PrehistoricPBJ : Entree
     {
         /// <summary>
         /// user has option to add peanut butter on sandwich 
@@ -34,7 +34,7 @@ namespace DinoDiner.Menu.Entrees
         /// These are a list of ingredients the user chooses to have on their sandwich with the exception of bread
         /// They can add peanut butter and jelly
         /// </summary>
-        public List<string> Ingredients
+        public override List<string> Ingredients
         {
             get
             {

@@ -10,7 +10,7 @@ namespace DinoDiner.Menu.Entrees
     /// <summary>
     /// This class implements the Brontowurst menu item at Dino-Diner
     /// </summary>
-    public class Brontowurst
+    public class Brontowurst : Entree
     {
         /// <summary>
         /// The user has the option of whether or not to include a bun
@@ -40,7 +40,7 @@ namespace DinoDiner.Menu.Entrees
         /// <summary>
         /// This list contains all of the ingredients the user can can with the exception of the brautwurst which is not an optional ingredient
         /// </summary>
-        public List<string> Ingredients
+        public override List<string> Ingredients
         {
             get
             {

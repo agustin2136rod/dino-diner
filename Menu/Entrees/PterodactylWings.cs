@@ -10,7 +10,7 @@ namespace DinoDiner.Menu.Entrees
     /// <summary>
     /// This class implements the making of the menu item Pterodactyl wings in Dino-Diner
     /// </summary>
-    public class PterodactylWings
+    public class PterodactylWings : Entree
     {
         /// <summary>
         /// Gets the price of the wings and sets it to the variable price 
@@ -25,7 +25,7 @@ namespace DinoDiner.Menu.Entrees
         /// <summary>
         /// The ingredients list for the menu item is chicken and wing sauce
         /// </summary>
-        public List<string> Ingredients
+        public override List<string> Ingredients
         {
             get
             {

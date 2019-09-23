@@ -10,7 +10,7 @@ namespace DinoDiner.Menu.Entrees
     /// <summary>
     /// This class implements the menu item velociwrap and it is constructed here
     /// </summary>
-    public class VelociWrap
+    public class VelociWrap : Entree
     {
         /// <summary>
         /// user has the option to include dressing
@@ -41,7 +41,7 @@ namespace DinoDiner.Menu.Entrees
         /// list of ingredients included on the Wrap that are optional with the exception of 
         /// the flour tortilla and the chicken breast
         /// </summary>
-        public List<string> Ingredients
+        public override List<string> Ingredients
         {
             get
             {
