@@ -7,16 +7,7 @@ using System.Text;
 
 namespace DinoDiner.Menu.Sides
 {
-    /// <summary>
-    /// enum for the difference sizes of items
-    /// </summary>
-    public enum Size
-    {
-        Small,
-        Medium, 
-        Large
-    }
-
+  
     /// <summary>
     /// abstract class that is not changeable. Deals with ingredients, price, and calories. Gets and sets them all
     /// </summary>
