@@ -6,12 +6,12 @@ using System.Collections.Generic;
 using System.Text;
 using DinoDiner.Menu;
 
-namespace DinoDiner.Menu.Drinks
+namespace DinoDiner.Menu
 {
     /// <summary>
     /// this is the base class for Drinks in Dino-Diner
     /// </summary>
-    public abstract class Drink
+    public abstract class Drink : IMenuItem
     {
 
         /// <summary>

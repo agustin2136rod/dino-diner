@@ -5,7 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace DinoDiner.Menu.Entrees
+namespace DinoDiner.Menu
 {
     /// <summary>
     /// This class implements the menu item velociwrap and it is constructed here
@@ -27,15 +27,6 @@ namespace DinoDiner.Menu.Entrees
         /// </summary>
         private bool Cheese = true;
 
-        /// <summary>
-        /// gets the price and assigns it to the price variable 
-        /// </summary>
-        public double Price { get; set; }
-
-        /// <summary>
-        /// gets the value of calories and assigns it to the variable calories 
-        /// </summary>
-        public uint Calories { get; set; }
 
         /// <summary>
         /// list of ingredients included on the Wrap that are optional with the exception of 
@@ -87,6 +78,15 @@ namespace DinoDiner.Menu.Entrees
         public void HoldCheese()
         {
             this.Cheese = false;
+        }
+
+        /// <summary>
+        /// overrides the ToString method and returns menu item as a string 
+        /// </summary>
+        /// <returns></returns>string menu item 
+        public override string ToString()
+        {
+            return $"Veloci-Wrap";
         }
     }
 }

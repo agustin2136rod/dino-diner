@@ -4,26 +4,20 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
-using DinoDiner.Menu.Entrees;
+using DinoDiner.Menu;
 
-namespace DinoDiner.Menu.Entrees
+namespace DinoDiner.Menu
 {
     /// <summary>
     /// This class implements the menu item DinoNuggets at Dino-Diner
     /// </summary>
     public class DinoNuggets : Entree
     {
-        /// <summary>
-        /// gets the price of the menu item and assigns it to the double Price
-        /// </summary>
-        public double Price { get; set; }
+    
 
         private int Count = 6;
 
-        /// <summary>
-        /// gets the calories of the menu item and assigns it to Calories 
-        /// </summary>
-        public uint Calories { get; set; }
+        
 
         /// <summary>
         /// Contains the list of ingredients (chicken nuggets) 
@@ -61,6 +55,15 @@ namespace DinoDiner.Menu.Entrees
             this.Price += .25;
             this.Calories += 59;
             this.Count++;
+        }
+
+        /// <summary>
+        /// overrides the ToString method and returns menu item as a string 
+        /// </summary>
+        /// <returns></returns>string menu item 
+        public override string ToString()
+        {
+            return $"Dino-Nuggets";
         }
     }
 }

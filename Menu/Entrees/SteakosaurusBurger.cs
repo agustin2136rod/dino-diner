@@ -5,7 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace DinoDiner.Menu.Entrees
+namespace DinoDiner.Menu
 {
     /// <summary>
     /// This class implements the menu item SteakosaurusBurger in Dino-Diner. The burger is created
@@ -32,15 +32,7 @@ namespace DinoDiner.Menu.Entrees
         /// </summary>
         private bool Mustard = true;
 
-        /// <summary>
-        /// Gets the price of the menu item and assigns it to the variable price
-        /// </summary>
-        public double Price { get; set; }
-
-        /// <summary>
-        /// gets the calories of the menu item and assigns it to the calories variable
-        /// </summary>
-        public uint Calories { get; set; }
+       
 
         /// <summary>
         /// List of ingredients to the burger that is depicted by what the user wants on the burger except 
@@ -98,6 +90,15 @@ namespace DinoDiner.Menu.Entrees
         public void HoldMustard()
         {
             this.Mustard = false;
+        }
+
+        /// <summary>
+        /// overrides the ToString method and returns menu item as a string 
+        /// </summary>
+        /// <returns></returns>string menu item 
+        public override string ToString()
+        {
+            return $"Steakosaurus Burger";
         }
     }
 }

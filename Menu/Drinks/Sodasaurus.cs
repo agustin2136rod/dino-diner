@@ -5,7 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace DinoDiner.Menu.Drinks
+namespace DinoDiner.Menu
 {
     /// <summary>
     /// this class implements the sodasaurus drink in dinodiner that inherents from drink base class
@@ -22,6 +22,8 @@ namespace DinoDiner.Menu.Drinks
         /// </summary>
         protected Size size;
 
+        
+
         /// <summary>
         /// property that gets the flavor of the soda
         /// </summary>
@@ -31,10 +33,7 @@ namespace DinoDiner.Menu.Drinks
             set { flavor = value; }
         }
 
-        /// <summary>
-        /// property that gets the price of the soda that is default small
-        /// </summary>
-        public double Price { get; set; } = 1.5;
+      
 
         /// <summary>
         /// initializes the drink to size small
@@ -42,6 +41,8 @@ namespace DinoDiner.Menu.Drinks
         public Sodasaurus()
         {
             this.Size = Size.Small;
+            this.Price = 1.50;
+            this.Calories = 112;
         }
 
         /// <summary>
@@ -83,6 +84,105 @@ namespace DinoDiner.Menu.Drinks
                 List<string> ingredients = new List<string>() { "Water", "Natural Flavors", "Cane Sugar" };
                 return ingredients;
             }
+        }
+
+        /// <summary>
+        /// overrides the ToString method and returns menu item as a string with size
+        /// </summary>
+        /// <returns></returns>string menu item with size
+        public override string ToString()
+        {
+            if (Flavor == SodasaurusFlavor.Cola)
+            {
+                switch (size)
+                {
+                    case Size.Small:
+                        return $"Small Cola Sodasaurus";
+                    case Size.Medium:
+                        return $"Medium Cola Sodasaurus";
+                    case Size.Large:
+                        return $"Large Cola Sodasaurus";
+                }
+            }
+
+            else if (Flavor == SodasaurusFlavor.Orange)
+            {
+                switch (size)
+                {
+                    case Size.Small:
+                        return $"Small Orange Sodasaurus";
+                    case Size.Medium:
+                        return $"Medium Orange Sodasaurus";
+                    case Size.Large:
+                        return $"Large Orange Sodasaurus";
+                }
+            }
+
+            else if (Flavor == SodasaurusFlavor.Vanilla)
+            {
+                switch (size)
+                {
+                    case Size.Small:
+                        return $"Small Vanilla Sodasaurus";
+                    case Size.Medium:
+                        return $"Medium Vanilla Sodasaurus";
+                    case Size.Large:
+                        return $"Large Vanilla Sodasaurus";
+                }
+            }
+
+            else if (Flavor == SodasaurusFlavor.Chocolate)
+            {
+                switch (size)
+                {
+                    case Size.Small:
+                        return $"Small Chocolate Sodasaurus";
+                    case Size.Medium:
+                        return $"Medium Chocolate Sodasaurus";
+                    case Size.Large:
+                        return $"Large Chocolate Sodasaurus";
+                }
+            }
+
+            else if (Flavor == SodasaurusFlavor.RootBeer)
+            {
+                switch (size)
+                {
+                    case Size.Small:
+                        return $"Small RootBeer Sodasaurus";
+                    case Size.Medium:
+                        return $"Medium RootBeer Sodasaurus";
+                    case Size.Large:
+                        return $"Large RootBeer Sodasaurus";
+                }
+            }
+
+            else if (Flavor == SodasaurusFlavor.Cherry)
+            {
+                switch (size)
+                {
+                    case Size.Small:
+                        return $"Small Cherry Sodasaurus";
+                    case Size.Medium:
+                        return $"Medium Cherry Sodasaurus";
+                    case Size.Large:
+                        return $"Large Cherry Sodasaurus";
+                }
+            }
+
+            else if (Flavor == SodasaurusFlavor.Lime)
+            {
+                switch (size)
+                {
+                    case Size.Small:
+                        return $"Small Lime Sodasaurus";
+                    case Size.Medium:
+                        return $"Medium Lime Sodasaurus";
+                    case Size.Large:
+                        return $"Large Lime Sodasaurus";
+                }
+            }
+            return base.ToString();
         }
     }
 }

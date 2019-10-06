@@ -3,7 +3,7 @@
  */
 using System.Collections.Generic;
 
-namespace DinoDiner.Menu.Entrees
+namespace DinoDiner.Menu
 {
     /// <summary>
     /// This class implements the menu item Peanut butter and jelly sandwich in Dino-Diner
@@ -20,15 +20,7 @@ namespace DinoDiner.Menu.Entrees
         /// </summary>
         private bool Jelly = true;
 
-        /// <summary>
-        /// gets how much the menu items costs and sets it to Price variable
-        /// </summary>
-        public double Price { get; set; }
 
-        /// <summary>
-        /// gets the calories of the menu item and sets it to Calories variable
-        /// </summary>
-        public uint Calories { get; set; }
 
         /// <summary>
         /// These are a list of ingredients the user chooses to have on their sandwich with the exception of bread
@@ -68,6 +60,15 @@ namespace DinoDiner.Menu.Entrees
         public void HoldJelly()
         {
             this.Jelly = false;
+        }
+
+        /// <summary>
+        /// overrides the ToString method and returns menu item as a string 
+        /// </summary>
+        /// <returns></returns>string menu item 
+        public override string ToString()
+        {
+            return $"Prehistoric PB&J";
         }
     }
 }

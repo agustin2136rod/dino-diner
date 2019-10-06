@@ -1,12 +1,12 @@
 ﻿/* Fryceritops.cs
  * Author: Agustin Rodriguez
  */
-using DinoDiner.Menu.Sides;
+using DinoDiner.Menu;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace DinoDiner.Menu.Sides
+namespace DinoDiner.Menu
 {
     /// <summary>
     /// This class implements the side fryceritops in DinoDiner and Inherits from Side
@@ -17,6 +17,8 @@ namespace DinoDiner.Menu.Sides
         /// size object for the class
         /// </summary>
         protected Size size;
+
+        
         
         /// <summary>
         /// gets and sets the size, price, and calories for the side item depending on what value it is.
@@ -48,7 +50,19 @@ namespace DinoDiner.Menu.Sides
                 return size;
             }
         }
-        
+
+        /// <summary>
+        /// overrides the ingredients property for the specific ingredients for this menu item
+        /// </summary>
+        public override List<string> Ingredients
+        {
+            get
+            {
+                List<string> ingredients = new List<string>() { "Potato", "Salt", "Vegetable Oil" };
+                return ingredients;
+            }
+        }
+
         /// <summary>
         /// initializes the ingredients, price, and calories for the side item
         /// </summary>
@@ -56,9 +70,25 @@ namespace DinoDiner.Menu.Sides
         {
             Price = 0.99;
             Calories = 222;
-            ingredients.Add("Potato");
-            ingredients.Add("Salt");
-            ingredients.Add("Vegetable Oil");
+            
+        }
+
+        /// <summary>
+        /// overrides the ToString method and returns menu item as a string with size
+        /// </summary>
+        /// <returns></returns>string menu item and the size 
+        public override string ToString()
+        {
+            switch (size)
+            {
+                case Size.Small:
+                    return $"Small Friceritops";
+                case Size.Medium:
+                    return $"Medium Friceritops";
+                case Size.Large:
+                    return $"Large Friceritops";
+            }
+            return base.ToString();
         }
     }
 }

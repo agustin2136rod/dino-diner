@@ -5,7 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace DinoDiner.Menu.Drinks
+namespace DinoDiner.Menu
 {
     /// <summary>
     /// This class represents the drink Tyrannotea that inherits from Drink base class
@@ -43,6 +43,8 @@ namespace DinoDiner.Menu.Drinks
         /// </summary>
         public bool Lemon { get; set; } = false;
 
+       
+
         /// <summary>
         /// constructor that initializes the drink to small
         /// </summary>
@@ -54,10 +56,7 @@ namespace DinoDiner.Menu.Drinks
 
         }
 
-        /// <summary>
-        /// price of the drink
-        /// </summary>
-        public double Price { get; set; } = 0.99;
+       
 
         /// <summary>
         /// property that sets the price, size, and calories of the drink
@@ -119,7 +118,39 @@ namespace DinoDiner.Menu.Drinks
             }
         }
 
-        
+        /// <summary>
+        /// overrides the ToString method and returns menu item as a string with size
+        /// </summary>
+        /// <returns></returns>string menu item with size
+        public override string ToString()
+        {
+            if (Sweet)
+            {
+                switch (size)
+                {
+                    case Size.Small:
+                        return $"Small Sweet Tyrannotea";
+                    case Size.Medium:
+                        return $"Medium Sweet Tyrannotea";
+                    case Size.Large:
+                        return $"Large Sweet Tyrannotea";
+                }
+            }
+            else
+            {
+                switch (size)
+                {
+                    case Size.Small:
+                        return $"Small Tyrannotea";
+                    case Size.Medium:
+                        return $"Medium Tyrannotea";
+                    case Size.Large:
+                        return $"Large Tyrannotea";
+                }
+            }
+            return base.ToString();
+        }
+
     }
 
 

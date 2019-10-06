@@ -5,22 +5,14 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace DinoDiner.Menu.Entrees
+namespace DinoDiner.Menu
 {
     /// <summary>
     /// This class implements the making of the menu item Pterodactyl wings in Dino-Diner
     /// </summary>
     public class PterodactylWings : Entree
     {
-        /// <summary>
-        /// Gets the price of the wings and sets it to the variable price 
-        /// </summary>
-        public double Price { get; set; }
 
-        /// <summary>
-        /// Gets the calories of the menu item and assigns it to the variable calories
-        /// </summary>
-        public uint Calories { get; set; }
 
         /// <summary>
         /// The ingredients list for the menu item is chicken and wing sauce
@@ -43,6 +35,15 @@ namespace DinoDiner.Menu.Entrees
             this.Calories = 318;
         }
 
-        
+        /// <summary>
+        /// overrides the ToString method and returns menu item as a string 
+        /// </summary>
+        /// <returns></returns>string menu item 
+        public override string ToString()
+        {
+            return $"Pterodactyl Wings";
+        }
+
+
     }
 }

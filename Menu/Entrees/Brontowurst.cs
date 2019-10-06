@@ -4,8 +4,9 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using DinoDiner.Menu;
 
-namespace DinoDiner.Menu.Entrees
+namespace DinoDiner.Menu
 {
     /// <summary>
     /// This class implements the Brontowurst menu item at Dino-Diner
@@ -27,15 +28,7 @@ namespace DinoDiner.Menu.Entrees
         /// </summary>
         private bool Onion = true;
 
-        /// <summary>
-        /// gets the price of the menu item
-        /// </summary>
-        public double Price { get; set; }
-
-        /// <summary>
-        /// gets and assigns the calories of the menu item 
-        /// </summary>
-        public uint Calories { get; set; }
+ 
 
         /// <summary>
         /// This list contains all of the ingredients the user can can with the exception of the brautwurst which is not an optional ingredient
@@ -83,6 +76,15 @@ namespace DinoDiner.Menu.Entrees
         public void HoldOnion()
         {
             this.Onion = false;
+        }
+
+        /// <summary>
+        /// overrides the ToString method and returns menu item as a string 
+        /// </summary>
+        /// <returns></returns>string menu item 
+        public override string ToString()
+        {
+            return $"Brontowurst";
         }
     }
 }

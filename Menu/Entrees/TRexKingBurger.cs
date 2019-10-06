@@ -5,7 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace DinoDiner.Menu.Entrees
+namespace DinoDiner.Menu
 {
     /// <summary>
     /// This class is implementing the TRexKingBurger on the menu at DinoDiner
@@ -53,15 +53,7 @@ namespace DinoDiner.Menu.Entrees
         /// </summary>
         private bool Mayo = true;
 
-        /// <summary>
-        /// This Gets the price of the TRexKingBurger and assigns it to the price variable
-        /// </summary>
-        public double Price { get; set; }
-
-        /// <summary>
-        /// calories of the burger are gotten when initialized and set to the calories variable
-        /// </summary>
-        public uint Calories { get; set; }
+       
 
         /// <summary>
         /// This list contains all of the ingredients of the TRexKingBurger
@@ -163,6 +155,15 @@ namespace DinoDiner.Menu.Entrees
         public void HoldOnion()
         {
             this.Onion = false;
+        }
+
+        /// <summary>
+        /// overrides the ToString method and returns menu item as a string 
+        /// </summary>
+        /// <returns></returns>string menu item 
+        public override string ToString()
+        {
+            return $"T-Rex King Burger";
         }
     }
 }

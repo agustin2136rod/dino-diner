@@ -5,7 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace DinoDiner.Menu.Drinks
+namespace DinoDiner.Menu
 {
     /// <summary>
     /// this class implements the drink water in dino diner that inherits from drink
@@ -31,6 +31,8 @@ namespace DinoDiner.Menu.Drinks
                 lemon = value;
             }
         }
+
+      
 
         /// <summary>
         /// construtor for water that initializes the drink to small
@@ -82,6 +84,24 @@ namespace DinoDiner.Menu.Drinks
                 if (Lemon) ingredients.Add("Lemon");
                 return ingredients;
             }
+        }
+
+        /// <summary>
+        /// overrides the ToString method and returns menu item as a string along with size
+        /// </summary>
+        /// <returns></returns>string menu item with size
+        public override string ToString()
+        {
+            switch (size)
+            {
+                case Size.Small:
+                    return $"Small Water";
+                case Size.Medium:
+                    return $"Medium Water";
+                case Size.Large:
+                    return $"Large Water";
+            }
+            return base.ToString();
         }
 
 

@@ -5,7 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace DinoDiner.Menu.Drinks
+namespace DinoDiner.Menu
 {
     /// <summary>
     /// This class implements the coffee at dinodiner that inherits from Drink base class
@@ -16,6 +16,7 @@ namespace DinoDiner.Menu.Drinks
         /// whether or not you need room for cream
         /// </summary>
         private bool roomForCream;
+
 
         /// <summary>
         /// property that will set room for cream in cofffee
@@ -132,6 +133,39 @@ namespace DinoDiner.Menu.Drinks
                 List<string> ingredients = new List<string>() { "Water", "Coffee" };
                 return ingredients;
             }
+        }
+
+        /// <summary>
+        /// overrides the ToString method and returns menu item as a string with size
+        /// </summary>
+        /// <returns></returns>string menu item with size
+        public override string ToString()
+        {
+            if (Decaf)
+            {
+                switch (size)
+                {
+                    case Size.Small:
+                        return $"Small Decaf Jurassic Java";
+                    case Size.Medium:
+                        return $"Medium Decaf Jurassic Java";
+                    case Size.Large:
+                        return $"Large Decaf Jurassic Java";
+                }
+            }
+            else
+            {
+                switch (size)
+                {
+                    case Size.Small:
+                        return $"Small Jurassic Java";
+                    case Size.Medium:
+                        return $"Medium Jurassic Java";
+                    case Size.Large:
+                        return $"Large Jurassic Java";
+                }
+            }
+            return base.ToString();
         }
 
     }
