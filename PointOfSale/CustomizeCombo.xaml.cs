@@ -1,4 +1,4 @@
-﻿/* MenuCategorySelection.xaml.cs
+﻿/* CustomizeCombo.xaml.cs
  * Author: Agustin Rodriguez
  */
 using System;
@@ -19,36 +19,26 @@ using System.Windows.Shapes;
 namespace PointOfSale
 {
     /// <summary>
-    /// Interaction logic for MenuCategorySelection.xaml
+    /// Interaction logic for CustomizeCombo.xaml
     /// </summary>
-    public partial class MenuCategorySelection : Page
+    public partial class CustomizeCombo : Page
     {
         /// <summary>
         /// initialize form
         /// </summary>
-        public MenuCategorySelection()
+        public CustomizeCombo()
         {
             InitializeComponent();
         }
 
         /// <summary>
-        /// navigates to the combo selection form
+        /// does not use
         /// </summary>
-        /// <param name="sender">reference to the control</param>
-        /// <param name="args">contains the event data</param>
-        void SelectCombo(object sender, RoutedEventArgs args)
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Button_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new ComboSelection());
-        }
 
-        /// <summary>
-        /// navigates to the entree selection form
-        /// </summary>
-        /// <param name="sender">reference to the control</param>
-        /// <param name="args">contains the event data</param>
-        void SelectEntree(object sender, RoutedEventArgs args)
-        {
-            NavigationService.Navigate(new EntreeSelection());
         }
 
         /// <summary>
