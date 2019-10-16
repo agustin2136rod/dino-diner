@@ -82,11 +82,11 @@ namespace DinoDiner.Menu
             switch (size)
             {
                 case Size.Small:
-                    return $"Small Friceritops";
+                    return $"Small Fryceritops";
                 case Size.Medium:
-                    return $"Medium Friceritops";
+                    return $"Medium Fryceritops";
                 case Size.Large:
-                    return $"Large Friceritops";
+                    return $"Large Fryceritops";
             }
             return base.ToString();
         }
