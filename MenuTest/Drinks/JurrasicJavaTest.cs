@@ -163,5 +163,171 @@ namespace MenuTest.Drinks
             Assert.Contains<string>("Coffee", jj.Ingredients);
             Assert.Equal<int>(2, jj.Ingredients.Count);
         }
+
+        /// <summary>
+        /// tests to make sure the description for the item is correct
+        /// </summary>
+        [Theory]
+        [InlineData(Size.Small)]
+        [InlineData(Size.Medium)]
+        [InlineData(Size.Large)]
+        public void DescriptionShouldBeCorrect(Size size)
+        {
+            JurrasicJava jj = new JurrasicJava();
+            jj.Size = size;
+            Assert.Equal($"{size} Jurassic Java", jj.Description);
+
+        }
+
+        /// <summary>
+        /// checks to make sure that the special string array is empty by default
+        /// </summary>
+        [Fact]
+        public void SpecialShouldBeEmptyByDefault()
+        {
+            PrehistoricPBJ pbj = new PrehistoricPBJ();
+            Assert.Empty(pbj.Special);
+        }
+
+        /// <summary>
+        /// checks to make sure that if there are any special instructions for food prep, it adds to the special[]
+        /// </summary>
+        [Fact]
+        public void AddIceShouldAddToSpecial()
+        {
+            JurrasicJava jj = new JurrasicJava();
+            jj.AddIce();
+            Assert.Collection<string>(jj.Special, item =>
+            {
+                Assert.Equal("Add Ice", item);
+            }
+                );
+        }
+
+        /// <summary>
+        /// checks to make sure that if there are any special instructions for food prep, it adds to the special[]
+        /// </summary>
+        [Fact]
+        public void LeaveRoomForCreamShouldAddToSpecial()
+        {
+            JurrasicJava jj = new JurrasicJava();
+            jj.LeaveRoomForCream();
+            Assert.Collection<string>(jj.Special, item =>
+            {
+                Assert.Equal("Leave Room For Cream", item);
+            }
+                );
+        }
+
+        /// <summary>
+        /// tests to see if there are multiple special instructions, to add to the special[]
+        /// </summary>
+        [Fact]
+        public void AddIceAndLeaveRoomForCreamShouldAddToSpecial()
+        {
+            JurrasicJava jj = new JurrasicJava();
+            jj.AddIce();
+            jj.LeaveRoomForCream();
+            Assert.Collection<string>(jj.Special, item =>
+            {
+                Assert.Equal("Add Ice", item);
+            }, item =>
+            {
+                Assert.Equal("Leave Room For Cream", item);
+            });
+        }
+
+        /// <summary>
+        /// tests to see that special is notified whenever a property changes
+        /// </summary>
+        [Fact]
+        public void LeaveRoomForCreamShouldNotifySpecialChange()
+        {
+            JurrasicJava jj = new JurrasicJava();
+            Assert.PropertyChanged(jj, "Special", () =>
+            {
+                jj.LeaveRoomForCream();
+            });
+        }
+
+        /// <summary>
+        /// tests to see that special is notified whenever a property changes
+        /// </summary>
+        [Fact]
+        public void AddIceShouldNotifySpecialChange()
+        {
+            JurrasicJava jj = new JurrasicJava();
+            Assert.PropertyChanged(jj, "Special", () =>
+            {
+                jj.AddIce();
+            });
+        }
+
+        /// <summary>
+        /// tests to see that special is notified whenever a property changes
+        /// </summary>
+        [Fact]
+        public void DecafShouldNotifyDescription()
+        {
+            JurrasicJava jj = new JurrasicJava();
+            Assert.PropertyChanged(jj, "Description", () =>
+            {
+                jj.DecafCoffee();
+            });
+        }
+
+        /// <summary>
+        /// tests to make sure the description for the item is correct
+        /// </summary>
+        [Theory]
+        [InlineData(Size.Small)]
+        [InlineData(Size.Medium)]
+        [InlineData(Size.Large)]
+        public void ChangeSizeShouldNotifyPrice(Size size)
+        {
+            JurrasicJava jj = new JurrasicJava();
+            jj.Size = size;
+            Assert.PropertyChanged(jj, "Price", () =>
+            {
+                jj.Size = size;
+            });
+
+        }
+
+        /// <summary>
+        /// tests to make sure the description for the item is correct
+        /// </summary>
+        [Theory]
+        [InlineData(Size.Small)]
+        [InlineData(Size.Medium)]
+        [InlineData(Size.Large)]
+        public void ChangeSizeShouldNotifyDescription(Size size)
+        {
+            JurrasicJava jj = new JurrasicJava();
+            jj.Size = size;
+            Assert.PropertyChanged(jj, "Description", () =>
+            {
+                jj.Size = size;
+            });
+
+        }
+
+        /// <summary>
+        /// tests to make sure the description for the item is correct
+        /// </summary>
+        [Theory]
+        [InlineData(Size.Small)]
+        [InlineData(Size.Medium)]
+        [InlineData(Size.Large)]
+        public void ChangeSizeShouldNotifyCalories(Size size)
+        {
+            JurrasicJava jj = new JurrasicJava();
+            jj.Size = size;
+            Assert.PropertyChanged(jj, "Calories", () =>
+            {
+                jj.Size = size;
+            });
+
+        }
     }
 }

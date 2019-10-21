@@ -169,5 +169,171 @@ namespace MenuTest.Drinks
             Assert.Contains<string>("Lemon", w.Ingredients);
             Assert.Equal<int>(2, w.Ingredients.Count);
         }
+
+        /// <summary>
+        /// tests to make sure the description for the item is correct
+        /// </summary>
+        [Theory]
+        [InlineData(Size.Small)]
+        [InlineData(Size.Medium)]
+        [InlineData(Size.Large)]
+        public void DescriptionShouldBeCorrect(Size size)
+        {
+            Water agua = new Water();
+            agua.Size = size;
+            Assert.Equal($"{size} Water", agua.Description);
+
+        }
+
+        /// <summary>
+        /// checks to make sure that the special string array is empty by default
+        /// </summary>
+        [Fact]
+        public void SpecialShouldBeEmptyByDefault()
+        {
+            PrehistoricPBJ pbj = new PrehistoricPBJ();
+            Assert.Empty(pbj.Special);
+        }
+
+        /// <summary>
+        /// tests to see if there are multiple special instructions, to add to the special[]
+        /// </summary>
+        [Fact]
+        public void HoldIceAndAddLemonShouldAddToSpecial()
+        {
+            Water agua = new Water();
+            agua.HoldIce();
+            agua.AddLemon();
+            Assert.Collection<string>(agua.Special, item =>
+            {
+                Assert.Equal("Hold Ice", item);
+            }, item =>
+            {
+                Assert.Equal("Add Lemon", item);
+            });
+        }
+
+        /// <summary>
+        /// checks to make sure that if there are any special instructions for food prep, it adds to the special[]
+        /// </summary>
+        [Fact]
+        public void HoldIceShouldAddToSpecial()
+        {
+            Water agua = new Water();
+            agua.HoldIce();
+            Assert.Collection<string>(agua.Special, item =>
+            {
+                Assert.Equal("Hold Ice", item);
+            }
+                );
+        }
+
+        /// <summary>
+        /// checks to make sure that if there are any special instructions for food prep, it adds to the special[]
+        /// </summary>
+        [Fact]
+        public void AddLemonShouldAddToSpecial()
+        {
+            Water agua = new Water();
+            agua.AddLemon();
+            Assert.Collection<string>(agua.Special, item =>
+            {
+                Assert.Equal("Add Lemon", item);
+            }
+                );
+        }
+
+        /// <summary>
+        /// tests to see that special is notified whenever a property changes
+        /// </summary>
+        [Fact]
+        public void AddLemonShouldNotifySpecialChange()
+        {
+            Water agua = new Water();
+            Assert.PropertyChanged(agua, "Special", () =>
+            {
+                agua.AddLemon();
+            });
+        }
+
+        /// <summary>
+        /// tests to see that special is notified whenever a property changes
+        /// </summary>
+        [Fact]
+        public void AddLemonShouldNotifyIngredientsChange()
+        {
+            Water agua = new Water();
+            Assert.PropertyChanged(agua, "Ingredients", () =>
+            {
+                agua.AddLemon();
+            });
+        }
+
+        /// <summary>
+        /// tests to make sure the description for the item is correct
+        /// </summary>
+        [Theory]
+        [InlineData(Size.Small)]
+        [InlineData(Size.Medium)]
+        [InlineData(Size.Large)]
+        public void ChangeSizeShouldNotifyPrice(Size size)
+        {
+            Water agua = new Water();
+            agua.Size = size;
+            Assert.PropertyChanged(agua, "Price", () =>
+            {
+                agua.Size = size;
+            });
+
+        }
+
+        /// <summary>
+        /// tests to make sure the description for the item is correct
+        /// </summary>
+        [Theory]
+        [InlineData(Size.Small)]
+        [InlineData(Size.Medium)]
+        [InlineData(Size.Large)]
+        public void ChangeSizeShouldNotifyCalories(Size size)
+        {
+            Water agua = new Water();
+            agua.Size = size;
+            Assert.PropertyChanged(agua, "Price", () =>
+            {
+                agua.Size = size;
+            });
+
+        }
+
+        /// <summary>
+        /// tests to make sure the description for the item is correct
+        /// </summary>
+        [Theory]
+        [InlineData(Size.Small)]
+        [InlineData(Size.Medium)]
+        [InlineData(Size.Large)]
+        public void ChangeSizeShouldNotifyDescription(Size size)
+        {
+            Water agua = new Water();
+            agua.Size = size;
+            Assert.PropertyChanged(agua, "Description", () =>
+            {
+                agua.Size = size;
+            });
+
+        }
+
+        /// <summary>
+        /// tests to see that special is notified whenever a property changes
+        /// </summary>
+        [Fact]
+        public void HoldIceShouldNotifySpecialChange()
+        {
+            Water agua = new Water();
+            Assert.PropertyChanged(agua, "Special", () =>
+            {
+                agua.HoldIce();
+            });
+        }
     }
 }

@@ -3,6 +3,7 @@
  */
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text;
 
 namespace DinoDiner.Menu
@@ -12,6 +13,9 @@ namespace DinoDiner.Menu
     /// </summary>
     public class JurrasicJava : Drink
     {
+
+        
+
         /// <summary>
         /// whether or not you need room for cream
         /// </summary>
@@ -50,6 +54,7 @@ namespace DinoDiner.Menu
             set
             {
                 decaf = value;
+
             }
         }
 
@@ -76,6 +81,7 @@ namespace DinoDiner.Menu
         public void LeaveRoomForCream()
         {
             RoomForCream = true;
+            NotifyOfPropertyChanged("Special");
         }
 
         /// <summary>
@@ -84,6 +90,7 @@ namespace DinoDiner.Menu
         public void AddIce()
         {
             this.Ice = true;
+            NotifyOfPropertyChanged("Special");
         }
 
         /// <summary>
@@ -92,6 +99,7 @@ namespace DinoDiner.Menu
         public void DecafCoffee()
         {
             Decaf = true;
+            NotifyOfPropertyChanged("Description");
         }
 
         /// <summary>
@@ -108,14 +116,23 @@ namespace DinoDiner.Menu
                     case Size.Small:
                         Price = 0.59;
                         Calories = 2;
+                        NotifyOfPropertyChanged("Price");
+                        NotifyOfPropertyChanged("Calories");
+                        NotifyOfPropertyChanged("Description");
                         break;
                     case Size.Medium:
                         Price = 0.99;
                         Calories = 4;
+                        NotifyOfPropertyChanged("Price");
+                        NotifyOfPropertyChanged("Calories");
+                        NotifyOfPropertyChanged("Description");
                         break;
                     case Size.Large:
                         Price = 1.49;
                         Calories = 8;
+                        NotifyOfPropertyChanged("Price");
+                        NotifyOfPropertyChanged("Calories");
+                        NotifyOfPropertyChanged("Description");
                         break;
                 }
             }
@@ -166,6 +183,28 @@ namespace DinoDiner.Menu
                 }
             }
             return base.ToString();
+        }
+
+        /// <summary>
+        /// gets a description of the order item
+        /// </summary>
+        public override string Description
+        {
+            get { return this.ToString(); }
+        }
+
+        /// <summary>
+        /// gets special instructions for food prep
+        /// </summary>
+        public override string[] Special
+        {
+            get
+            {
+                List<string> special = new List<string>();
+                if (Ice) special.Add("Add Ice");
+                if (roomForCream) special.Add("Leave Room For Cream");
+                return special.ToArray();
+            }
         }
 
     }

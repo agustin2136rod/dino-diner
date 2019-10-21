@@ -187,5 +187,237 @@ namespace MenuTest.Drinks
             Assert.Contains<string>("Cane Sugar", soda.Ingredients);
             Assert.Equal<int>(3, soda.Ingredients.Count);
         }
+
+        /// <summary>
+        /// tests to make sure the description for the item is correct
+        /// </summary>
+        [Theory]
+        [InlineData(Size.Small)]
+        [InlineData(Size.Medium)]
+        [InlineData(Size.Large)]
+        public void DescriptionShouldBeCorrect(Size size)
+        {
+            SodasaurusFlavor flav = new SodasaurusFlavor();
+            Sodasaurus soda = new Sodasaurus();
+            soda.Size = size;
+            switch(flav)
+            {
+                case SodasaurusFlavor.Cherry:
+                    Assert.Equal($"{size} {flav} Sodasaurus", soda.Description);
+                    break;
+                case SodasaurusFlavor.Chocolate:
+                    Assert.Equal($"{size} {flav} Sodasaurus", soda.Description);
+                    break;
+                case SodasaurusFlavor.Cola:
+                    Assert.Equal($"{size} {flav} Sodasaurus", soda.Description);
+                    break;
+                case SodasaurusFlavor.Lime:
+                    Assert.Equal($"{size} {flav} Sodasaurus", soda.Description);
+                    break;
+                case SodasaurusFlavor.Orange:
+                    Assert.Equal($"{size} {flav} Sodasaurus", soda.Description);
+                    break;
+                case SodasaurusFlavor.RootBeer:
+                    Assert.Equal($"{size} {flav} Sodasaurus", soda.Description);
+                    break;
+                case SodasaurusFlavor.Vanilla:
+                    Assert.Equal($"{size} {flav} Sodasaurus", soda.Description);
+                    break;
+            }
+        }
+
+        /// <summary>
+        /// checks to make sure that the special string array is empty by default
+        /// </summary>
+        [Fact]
+        public void SpecialShouldBeEmptyByDefault()
+        {
+            PrehistoricPBJ pbj = new PrehistoricPBJ();
+            Assert.Empty(pbj.Special);
+        }
+
+        /// <summary>
+        /// checks to make sure that if there are any special instructions for food prep, it adds to the special[]
+        /// </summary>
+        [Fact]
+        public void HoldIceShouldAddToSpecial()
+        {
+            Sodasaurus soda = new Sodasaurus();
+            soda.HoldIce();
+            Assert.Collection<string>(soda.Special, item =>
+            {
+                Assert.Equal("Hold Ice", item);
+            }
+                );
+        }
+
+        /// <summary>
+        /// tests to make sure the description for the item is correct
+        /// </summary>
+        [Theory]
+        [InlineData(Size.Small)]
+        [InlineData(Size.Medium)]
+        [InlineData(Size.Large)]
+        public void ChangeSizeShouldNotifyPrice(Size size)
+        {
+            Sodasaurus soda = new Sodasaurus();
+            soda.Size = size;
+            Assert.PropertyChanged(soda, "Price", () =>
+            {
+                soda.Size = size;
+            });
+
+        }
+
+        /// <summary>
+        /// tests to make sure the description for the item is correct
+        /// </summary>
+        [Theory]
+        [InlineData(Size.Small)]
+        [InlineData(Size.Medium)]
+        [InlineData(Size.Large)]
+        public void ChangeSizeShouldNotifyCalories(Size size)
+        {
+            Sodasaurus soda = new Sodasaurus();
+            soda.Size = size;
+            Assert.PropertyChanged(soda, "Calories", () =>
+            {
+                soda.Size = size;
+            });
+
+        }
+
+        /// <summary>
+        /// tests to make sure the description for the item is correct
+        /// </summary>
+        [Theory]
+        [InlineData(Size.Small)]
+        [InlineData(Size.Medium)]
+        [InlineData(Size.Large)]
+        public void ChangeSizeShouldNotifyDescription(Size size)
+        {
+            Sodasaurus soda = new Sodasaurus();
+            soda.Size = size;
+            Assert.PropertyChanged(soda, "Description", () =>
+            {
+                soda.Size = size;
+            });
+
+        }
+
+        /// <summary>
+        /// tests to make sure the description for the item is correct
+        /// </summary>
+        [Fact]
+        public void FlavorShouldBeNotifiedWhenChanged()
+        {
+            SodasaurusFlavor flav = new SodasaurusFlavor();
+            Sodasaurus soda = new Sodasaurus();
+            
+            switch (flav)
+            {
+                case SodasaurusFlavor.Cherry:
+                    Assert.PropertyChanged(soda, "Flavor", () =>
+                    {
+                        soda.Flavor = flav;
+                    });
+                    break;
+                case SodasaurusFlavor.Chocolate:
+                    Assert.PropertyChanged(soda, "Flavor", () =>
+                    {
+                        soda.Flavor = flav;
+                    });
+                    break;
+                case SodasaurusFlavor.Cola:
+                    Assert.PropertyChanged(soda, "Flavor", () =>
+                    {
+                        soda.Flavor = flav;
+                    });
+                    break;
+                case SodasaurusFlavor.Lime:
+                    Assert.PropertyChanged(soda, "Flavor", () =>
+                    {
+                        soda.Flavor = flav;
+                    });
+                    break;
+                case SodasaurusFlavor.Orange:
+                    Assert.PropertyChanged(soda, "Flavor", () =>
+                    {
+                        soda.Flavor = flav;
+                    });
+                    break;
+                case SodasaurusFlavor.RootBeer:
+                    Assert.PropertyChanged(soda, "Flavor", () =>
+                    {
+                        soda.Flavor = flav;
+                    });
+                    break;
+                case SodasaurusFlavor.Vanilla:
+                    Assert.PropertyChanged(soda, "Flavor", () =>
+                    {
+                        soda.Flavor = flav;
+                    });
+                    break;
+            }
+        }
+
+        /// <summary>
+        /// tests to make sure the description for the item is correct
+        /// </summary>
+        [Theory]
+        [InlineData(Size.Small)]
+        [InlineData(Size.Medium)]
+        [InlineData(Size.Large)]
+        public void DescriptionShouldBeNotifiedWhenChanged(Size size)
+        {
+            SodasaurusFlavor flav = new SodasaurusFlavor();
+            Sodasaurus soda = new Sodasaurus();
+            soda.Size = size;
+            switch (flav)
+            {
+                case SodasaurusFlavor.Cherry:
+                    Assert.PropertyChanged(soda, "Description", () =>
+                    {
+                        soda.Size = size;
+                    });
+                    break;
+                case SodasaurusFlavor.Chocolate:
+                    Assert.PropertyChanged(soda, "Description", () =>
+                    {
+                        soda.Size = size;
+                    });
+                    break;
+                case SodasaurusFlavor.Cola:
+                    Assert.PropertyChanged(soda, "Description", () =>
+                    {
+                        soda.Size = size;
+                    });
+                    break;
+                case SodasaurusFlavor.Lime:
+                    Assert.PropertyChanged(soda, "Description", () =>
+                    {
+                        soda.Size = size;
+                    });
+                    break;
+                case SodasaurusFlavor.Orange:
+                    Assert.PropertyChanged(soda, "Description", () =>
+                    {
+                        soda.Size = size;
+                    });
+                    break;
+                case SodasaurusFlavor.RootBeer:
+                    Assert.PropertyChanged(soda, "Description", () =>
+                    {
+                        soda.Size = size;
+                    });
+                    break;
+                case SodasaurusFlavor.Vanilla:
+                    Assert.PropertyChanged(soda, "Description", () =>
+                    {
+                        soda.Size = size;
+                    });
+                    break;
+            }
+        }
     }
 }

@@ -245,6 +245,198 @@ namespace MenuTest.Drinks
             Assert.Contains<string>("Cane Sugar", tt.Ingredients);
             Assert.Equal<int>(3, tt.Ingredients.Count);
         }
+
+        /// <summary>
+        /// tests to make sure the description for the item is correct
+        /// </summary>
+        [Theory]
+        [InlineData(Size.Small)]
+        [InlineData(Size.Medium)]
+        [InlineData(Size.Large)]
+        public void DescriptionShouldBeCorrect(Size size)
+        {
+            Tyrannotea tt = new Tyrannotea();
+            tt.Size = size;
+            Assert.Equal($"{size} Tyrannotea", tt.Description);
+
+        }
+
+        /// <summary>
+        /// checks to make sure that the special string array is empty by default
+        /// </summary>
+        [Fact]
+        public void SpecialShouldBeEmptyByDefault()
+        {
+            PrehistoricPBJ pbj = new PrehistoricPBJ();
+            Assert.Empty(pbj.Special);
+        }
+
+        /// <summary>
+        /// checks to make sure that if there are any special instructions for food prep, it adds to the special[]
+        /// </summary>
+        [Fact]
+        public void HoldIceShouldAddToSpecial()
+        {
+            Tyrannotea tea = new Tyrannotea();
+            tea.HoldIce();
+            Assert.Collection<string>(tea.Special, item =>
+            {
+                Assert.Equal("Hold Ice", item);
+            }
+                );
+        }
+
+        /// <summary>
+        /// checks to make sure that if there are any special instructions for food prep, it adds to the special[]
+        /// </summary>
+        [Fact]
+        public void AddLemonShouldAddToSpecial()
+        {
+            Tyrannotea tea = new Tyrannotea();
+            tea.AddLemon();
+            Assert.Collection<string>(tea.Special, item =>
+            {
+                Assert.Equal("Add Lemon", item);
+            }
+                );
+        }
+
+        /// <summary>
+        /// tests to see if there are multiple special instructions, to add to the special[]
+        /// </summary>
+        [Fact]
+        public void HoldIceAndAddLemonShouldAddToSpecial()
+        {
+            Tyrannotea tea = new Tyrannotea();
+            tea.HoldIce();
+            tea.AddLemon();
+            Assert.Collection<string>(tea.Special, item =>
+            {
+                Assert.Equal("Hold Ice", item);
+            }, item =>
+            {
+                Assert.Equal("Add Lemon", item);
+            });
+        }
+
+        /// <summary>
+        /// tests to make sure the description for the item is correct
+        /// </summary>
+        [Theory]
+        [InlineData(Size.Small)]
+        [InlineData(Size.Medium)]
+        [InlineData(Size.Large)]
+        public void ChangeSizeShouldNotifyPrice(Size size)
+        {
+            Tyrannotea tea = new Tyrannotea();
+            tea.Size = size;
+            Assert.PropertyChanged(tea, "Price", () =>
+            {
+                tea.Size = size;
+            });
+
+        }
+
+        /// <summary>
+        /// tests to make sure the description for the item is correct
+        /// </summary>
+        [Theory]
+        [InlineData(Size.Small)]
+        [InlineData(Size.Medium)]
+        [InlineData(Size.Large)]
+        public void ChangeSizeShouldNotifyCalories(Size size)
+        {
+            Tyrannotea tea = new Tyrannotea();
+            tea.Size = size;
+            Assert.PropertyChanged(tea, "Calories", () =>
+            {
+                tea.Size = size;
+            });
+
+        }
+
+        /// <summary>
+        /// tests to make sure the description for the item is correct
+        /// </summary>
+        [Theory]
+        [InlineData(Size.Small)]
+        [InlineData(Size.Medium)]
+        [InlineData(Size.Large)]
+        public void ChangeSizeShouldNotifyDescription(Size size)
+        {
+            Tyrannotea tea = new Tyrannotea();
+            tea.Size = size;
+            Assert.PropertyChanged(tea, "Description", () =>
+            {
+                tea.Size = size;
+            });
+
+        }
+
+        /// <summary>
+        /// tests to see that special is notified whenever a property changes
+        /// </summary>
+        [Fact]
+        public void SweetShouldNotifyDescriptionChange()
+        {
+            Tyrannotea tea = new Tyrannotea();
+            Assert.PropertyChanged(tea, "Description", () =>
+            {
+                tea.Sweet = true;
+            });
+        }
+
+        /// <summary>
+        /// tests to see that special is notified whenever a property changes
+        /// </summary>
+        [Fact]
+        public void AddLemonShouldNotifySpecialChange()
+        {
+            Tyrannotea tea = new Tyrannotea();
+            Assert.PropertyChanged(tea, "Special", () =>
+            {
+                tea.AddLemon();
+            });
+        }
+
+        /// <summary>
+        /// tests to see that special is notified whenever a property changes
+        /// </summary>
+        [Fact]
+        public void AddLemonShouldNotifyIngredientsChange()
+        {
+            Tyrannotea tea = new Tyrannotea();
+            Assert.PropertyChanged(tea, "Ingredients", () =>
+            {
+                tea.AddLemon();
+            });
+        }
+
+        /// <summary>
+        /// tests to see that special is notified whenever a property changes
+        /// </summary>
+        [Fact]
+        public void HoldIceShouldNotifySpecialChange()
+        {
+            Tyrannotea tea = new Tyrannotea();
+            Assert.PropertyChanged(tea, "Special", () =>
+            {
+                tea.HoldIce();
+            });
+        }
+
+        /// <summary>
+        /// tests to see that special is notified whenever a property changes
+        /// </summary>
+        [Fact]
+        public void IfSweetNotifyCaloriesChange()
+        {
+            Tyrannotea tea = new Tyrannotea();
            
+            Assert.PropertyChanged(tea, "Calories", () =>
+            {
+                tea.Sweet = true;
+            });
+        }
     }
 }

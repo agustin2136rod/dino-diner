@@ -3,6 +3,7 @@
  */
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text;
 
 namespace DinoDiner.Menu
@@ -12,6 +13,8 @@ namespace DinoDiner.Menu
     /// </summary>
     public class VelociWrap : Entree
     {
+        
+
         /// <summary>
         /// user has the option to include dressing
         /// </summary>
@@ -60,6 +63,8 @@ namespace DinoDiner.Menu
         public void HoldDressing()
         {
             this.Dressing = false;
+            NotifyOfPropertyChanged("Ingredients");
+            NotifyOfPropertyChanged("Special");
         }
 
         /// <summary>
@@ -69,6 +74,8 @@ namespace DinoDiner.Menu
         public void HoldLettuce()
         {
             this.Lettuce = false;
+            NotifyOfPropertyChanged("Ingredients");
+            NotifyOfPropertyChanged("Special");
         }
 
         /// <summary>
@@ -78,6 +85,8 @@ namespace DinoDiner.Menu
         public void HoldCheese()
         {
             this.Cheese = false;
+            NotifyOfPropertyChanged("Ingredients");
+            NotifyOfPropertyChanged("Special");
         }
 
         /// <summary>
@@ -87,6 +96,29 @@ namespace DinoDiner.Menu
         public override string ToString()
         {
             return $"Veloci-Wrap";
+        }
+
+        /// <summary>
+        /// gets a description of the order item
+        /// </summary>
+        public override string Description
+        {
+            get { return this.ToString(); }
+        }
+
+        /// <summary>
+        /// gets special instructions for food prep
+        /// </summary>
+        public override string[] Special
+        {
+            get
+            {
+                List<string> special = new List<string>();
+                if (!Cheese) special.Add("Hold Cheese");
+                if (!Lettuce) special.Add("Hold Lettuce");
+                if (!Dressing) special.Add("Hold Dressing");
+                return special.ToArray();
+            }
         }
     }
 }

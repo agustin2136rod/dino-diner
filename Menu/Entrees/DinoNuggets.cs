@@ -3,6 +3,7 @@
  */
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text;
 using DinoDiner.Menu;
 
@@ -14,7 +15,9 @@ namespace DinoDiner.Menu
     public class DinoNuggets : Entree
     {
     
-
+        /// <summary>
+        /// counter variable for the nuggets
+        /// </summary>
         private int Count = 6;
 
         
@@ -55,6 +58,10 @@ namespace DinoDiner.Menu
             this.Price += .25;
             this.Calories += 59;
             this.Count++;
+            NotifyOfPropertyChanged("Ingredients");
+            NotifyOfPropertyChanged("Special");
+            NotifyOfPropertyChanged("Price");
+            NotifyOfPropertyChanged("Calories");
         }
 
         /// <summary>
@@ -64,6 +71,31 @@ namespace DinoDiner.Menu
         public override string ToString()
         {
             return $"Dino-Nuggets";
+        }
+
+        /// <summary>
+        /// gets a description of the order item
+        /// </summary>
+        public override string Description
+        {
+            get { return this.ToString(); }
+        }
+
+        /// <summary>
+        /// gets special instructions for food prep
+        /// </summary>
+        public override string[] Special
+        {
+            get
+            {
+                List<string> special = new List<string>();
+                if (Count > 6)
+                {
+                    int temp = Count - 6;
+                    special.Add(temp + " Extra Nuggets");
+                } 
+                return special.ToArray();
+            }
         }
     }
 }

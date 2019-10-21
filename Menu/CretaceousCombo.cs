@@ -12,17 +12,25 @@ namespace DinoDiner.Menu
     /// <summary>
     /// this class implements the combo meal at Dino-Diner
     /// </summary>
-    public class CretaceousCombo : IMenuItem, INotifyPropertyChanged
+    public class CretaceousCombo : IMenuItem, INotifyPropertyChanged, IOrderItem
     {
-
+        /// <summary>
+        /// implement interface for INotifyPropertyChanged
+        /// </summary>
         public event PropertyChangedEventHandler PropertyChanged;
 
+        /// <summary>
+        /// an event handler to notify if a field/property is changed
+        /// </summary>
+        /// <param name="propertyName">name of the property changed</param>
         protected void NotifyOfPropertyChanged(string propertyName)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
-
+        /// <summary>
+        /// object entree for the menu item used in the combo
+        /// </summary>
         private Entree entree;
 
         /// <summary>
@@ -34,7 +42,7 @@ namespace DinoDiner.Menu
             protected set
             {
                 entree = value;
-                entree.PropertyChanged += (object sender, PropertyChangedEventArgs args) => 
+                entree.PropertyChanged += (object sender, PropertyChangedEventArgs args) =>
                     {
                         NotifyOfPropertyChanged(args.PropertyName);
                     };
@@ -60,9 +68,14 @@ namespace DinoDiner.Menu
             }
         }
 
-
+        /// <summary>
+        /// drink object for the combo that is initialized to sodasaurus
+        /// </summary>
         private Drink drink = new Sodasaurus();
 
+        /// <summary>
+        /// field for setting an instance of the drink class
+        /// </summary>
         public Drink Drink
         {
             get { return drink; }
@@ -161,7 +174,9 @@ namespace DinoDiner.Menu
             return Entree + " Combo";
         }
 
-
+        /// <summary>
+        /// gets special instructions for food prep
+        /// </summary>
         public string[] Special
         {
             get
@@ -170,13 +185,15 @@ namespace DinoDiner.Menu
                 special.AddRange(Entree.Special);
                 special.Add(Side.Description);
                 special.AddRange(Side.Special);
-                special.AddRange(Drink.Special);
                 special.Add(Drink.Description);
+                special.AddRange(Drink.Special);
                 return special.ToArray();
             }
         }
 
-
+        /// <summary>
+        /// gets a description of the order item
+        /// </summary>
         public string Description
         {
             get

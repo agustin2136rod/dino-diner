@@ -3,6 +3,7 @@
  */
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text;
 using DinoDiner.Menu;
 
@@ -28,7 +29,7 @@ namespace DinoDiner.Menu
         /// </summary>
         private bool Onion = true;
 
- 
+        
 
         /// <summary>
         /// This list contains all of the ingredients the user can can with the exception of the brautwurst which is not an optional ingredient
@@ -60,6 +61,8 @@ namespace DinoDiner.Menu
         public void HoldBun()
         {
             this.Bun = false;
+            NotifyOfPropertyChanged("Ingredients");
+            NotifyOfPropertyChanged("Special");
         }
 
         /// <summary>
@@ -68,6 +71,8 @@ namespace DinoDiner.Menu
         public void HoldPeppers()
         {
             this.Peppers = false;
+            NotifyOfPropertyChanged("Ingredients");
+            NotifyOfPropertyChanged("Special");
         }
 
         /// <summary>
@@ -76,6 +81,8 @@ namespace DinoDiner.Menu
         public void HoldOnion()
         {
             this.Onion = false;
+            NotifyOfPropertyChanged("Ingredients");
+            NotifyOfPropertyChanged("Special");
         }
 
         /// <summary>
@@ -85,6 +92,29 @@ namespace DinoDiner.Menu
         public override string ToString()
         {
             return $"Brontowurst";
+        }
+
+        /// <summary>
+        /// gets a description of the order item
+        /// </summary>
+        public override string Description
+        {
+            get { return this.ToString(); }
+        }
+
+        /// <summary>
+        /// gets special instructions for food prep
+        /// </summary>
+        public override string[] Special
+        {
+            get
+            {
+                List<string> special = new List<string>();
+                if (!Onion) special.Add("Hold Onion");
+                if (!Peppers) special.Add("Hold Peppers");
+                if (!Bun) special.Add("Hold Bun");
+                return special.ToArray();
+            }
         }
     }
 }

@@ -9,7 +9,9 @@ namespace MenuTest
     public class MenuItemNamesTest
     {
         #region Entrees
-
+        /// <summary>
+        /// checks tostring
+        /// </summary>
         [Fact]
         public void BrontowurstToStringShouldGiveName()
         {
@@ -17,7 +19,9 @@ namespace MenuTest
             Assert.Equal("Brontowurst", bw.ToString());
         }
 
-
+        /// <summary>
+        /// checks tostring
+        /// </summary>
         [Fact]
         public void DinoNuggetToStringShouldGiveName()
         {
@@ -26,7 +30,9 @@ namespace MenuTest
             Assert.Equal("Dino-Nuggets", dn.ToString());
         }
 
-
+        /// <summary>
+        /// checks tostring
+        /// </summary>
         [Fact]
         public void PrehistoricPBJToStringShouldGiveName()
         {
@@ -34,6 +40,9 @@ namespace MenuTest
             Assert.Equal("Prehistoric PB&J", pbj.ToString());
         }
 
+        /// <summary>
+        /// checks tostring
+        /// </summary>
         [Fact]
         public void PterodactylWingsToStringShouldGiveName()
         {
@@ -41,6 +50,9 @@ namespace MenuTest
             Assert.Equal("Pterodactyl Wings", pw.ToString());
         }
 
+        /// <summary>
+        /// checks tostring
+        /// </summary>
         [Fact]
         public void SteakosaurusBurgerToStringShouldGiveName()
         {
@@ -48,6 +60,9 @@ namespace MenuTest
             Assert.Equal("Steakosaurus Burger", sb.ToString());
         }
 
+        /// <summary>
+        /// checks tostring
+        /// </summary>
         [Fact]
         public void TRexKingBurgerToStringShouldGiveName()
         {
@@ -55,6 +70,9 @@ namespace MenuTest
             Assert.Equal("T-Rex King Burger", trex.ToString());
         }
 
+        /// <summary>
+        /// checks tostring
+        /// </summary>
         [Fact]
         public void VelociWrapToStringShouldGiveName()
         {
@@ -66,6 +84,9 @@ namespace MenuTest
 
         #region Sides
 
+        /// <summary>
+        /// checks tostring
+        /// </summary>
         [Theory]
         [InlineData(Size.Small)]
         [InlineData(Size.Medium)]
@@ -77,6 +98,9 @@ namespace MenuTest
             Assert.Equal($"{size} Fryceritops", ft.ToString());
         }
 
+        /// <summary>
+        /// checks tostring
+        /// </summary>
         [Theory]
         [InlineData(Size.Small)]
         [InlineData(Size.Medium)]
@@ -88,6 +112,9 @@ namespace MenuTest
             Assert.Equal($"{size} Meteor Mac and Cheese", mmc.ToString());
         }
 
+        /// <summary>
+        /// checks tostring
+        /// </summary>
         [Theory]
         [InlineData(Size.Small)]
         [InlineData(Size.Medium)]
@@ -99,6 +126,9 @@ namespace MenuTest
             Assert.Equal($"{size} Mezzorella Sticks", ms.ToString());
         }
 
+        /// <summary>
+        /// checks tostring
+        /// </summary>
         [Theory]
         [InlineData(Size.Small)]
         [InlineData(Size.Medium)]
@@ -113,7 +143,9 @@ namespace MenuTest
         #endregion
 
         #region Drinks
-
+        /// <summary>
+        /// checks tostring
+        /// </summary>
         [Theory]
         [InlineData(Size.Small, false)]
         [InlineData(Size.Medium, false)]
@@ -130,7 +162,9 @@ namespace MenuTest
             else Assert.Equal($"{size} Jurassic Java", java.ToString());
         }
 
-
+        /// <summary>
+        /// checks tostring
+        /// </summary>
         [Theory]
         [InlineData(Size.Small, SodasaurusFlavor.Cherry)]
         [InlineData(Size.Small, SodasaurusFlavor.Chocolate)]
@@ -161,6 +195,9 @@ namespace MenuTest
             Assert.Equal($"{size} {flavor} Sodasaurus", soda.ToString());
         }
 
+        /// <summary>
+        /// checks tostring
+        /// </summary>
         [Theory]
         [InlineData(Size.Small, false)]
         [InlineData(Size.Medium, false)]
@@ -177,6 +214,9 @@ namespace MenuTest
             else Assert.Equal($"{size} Tyrannotea", tea.ToString());
         }
 
+        /// <summary>
+        /// checks tostring
+        /// </summary>
         [Theory]
         [InlineData(Size.Small)]
         [InlineData(Size.Medium)]
@@ -191,7 +231,9 @@ namespace MenuTest
         #endregion
 
         #region Combos
-
+        /// <summary>
+        /// checks tostring
+        /// </summary>
         [Theory]
         [InlineData(typeof(Brontowurst), "Brontowurst Combo")]
         [InlineData(typeof(DinoNuggets), "Dino-Nuggets Combo")]

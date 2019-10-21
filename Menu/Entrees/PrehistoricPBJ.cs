@@ -9,7 +9,7 @@ namespace DinoDiner.Menu
     /// <summary>
     /// This class implements the menu item Peanut butter and jelly sandwich in Dino-Diner
     /// </summary>
-    public class PrehistoricPBJ : Entree, INotifyPropertyChanged
+    public class PrehistoricPBJ : Entree
     {
         /// <summary>
         /// user has option to add peanut butter on sandwich 
@@ -20,21 +20,6 @@ namespace DinoDiner.Menu
         /// user has option to add jelly on sandwich 
         /// </summary>
         private bool Jelly = true;
-
-        /// <summary>
-        /// an event handler for PropertyChanged events for the fields peanut butter and jelly
-        /// </summary>
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        /// <summary>
-        /// an event handler to notify if a field/property is changed
-        /// </summary>
-        /// <param name="propertyName">name of the property changed</param>
-        protected void NotifyofPropertyChanged(string propertyName)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
-
 
 
         /// <summary>
@@ -67,8 +52,8 @@ namespace DinoDiner.Menu
         public void HoldPeanutButter()
         {
             this.PeanutButter = false;
-            NotifyofPropertyChanged("Ingredients");
-            NotifyofPropertyChanged("Special");
+            NotifyOfPropertyChanged("Ingredients");
+            NotifyOfPropertyChanged("Special");
         }
 
         /// <summary>
@@ -77,8 +62,8 @@ namespace DinoDiner.Menu
         public void HoldJelly()
         {
             this.Jelly = false;
-            NotifyofPropertyChanged("Ingredients");
-            NotifyofPropertyChanged("Special");
+            NotifyOfPropertyChanged("Ingredients");
+            NotifyOfPropertyChanged("Special");
         }
 
         /// <summary>
@@ -93,7 +78,7 @@ namespace DinoDiner.Menu
         /// <summary>
         /// gets a description of the order item
         /// </summary>
-        public string Description
+        public override string Description
         {
             get { return this.ToString(); }
         }
@@ -102,7 +87,7 @@ namespace DinoDiner.Menu
         /// <summary>
         /// gets special instructions for food prep
         /// </summary>
-        public string[] Special
+        public override string[] Special
         {
             get
             {
