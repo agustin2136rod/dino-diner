@@ -21,10 +21,10 @@ namespace MenuTest
         public void SubtotalCostShouldNeverBeNegative()
         {
             Order order = new Order();
-            Brontowurst wurst = new Brontowurst();
-            wurst.Price = -10;
-            order.Items.Add(wurst);
-            Assert.Equal(0, order.SubtotalCost);
+            MockEntree entree = new MockEntree(-10);
+            order.Items.Add(entree);
+            Assert.Equal<double>(0, order.SubtotalCost);
+
         }
     }
 }

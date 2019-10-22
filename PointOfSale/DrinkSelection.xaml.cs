@@ -39,11 +39,12 @@ namespace PointOfSale
         /// <param name="args">contains the event data</param>
         private void SelectWater(object sender, RoutedEventArgs args)
         {
+            SpecialButtons.Children.Clear();
             Button lemon = new Button();
             lemon.Height = 100;
             lemon.Width = 100;
             lemon.Content = "AddLemon";
-            DrinkMenu.Children.Add(lemon);
+            SpecialButtons.Children.Add(lemon);
         }
 
         /// <summary>
@@ -53,17 +54,18 @@ namespace PointOfSale
         /// <param name="args">contains the event data</param>
         private void SelectTyrannotea(object sender, RoutedEventArgs args)
         {
+            SpecialButtons.Children.Clear();
             Button tt = new Button();
             tt.Height = 100;
             tt.Width = 100;
             tt.Content = "Sweet";
-            DrinkMenu.Children.Add(tt);
+            SpecialButtons.Children.Add(tt);
 
             Button lemon = new Button();
             lemon.Height = 100;
             lemon.Width = 100;
             lemon.Content = "AddLemon";
-            DrinkMenu.Children.Add(lemon);
+            SpecialButtons.Children.Add(lemon);
         }
 
         /// <summary>
@@ -73,11 +75,12 @@ namespace PointOfSale
         /// <param name="args">contains the event data</param>
         private void SelectJava(object sender, RoutedEventArgs args)
         {
+            SpecialButtons.Children.Clear();
             Button jj = new Button();
             jj.Height = 100;
             jj.Width = 100;
             jj.Content = "Decaf";
-            DrinkMenu.Children.Add(jj);
+            SpecialButtons.Children.Add(jj);
         }
 
         /// <summary>
@@ -87,11 +90,12 @@ namespace PointOfSale
         /// <param name="args">contains the event data</param>
         private void SelectSodasaurus(object sender, RoutedEventArgs args)
         {
+            SpecialButtons.Children.Clear();
             Button soda = new Button();
             soda.Height = 100;
             soda.Width = 100;
             soda.Content = "Flavor";
-            DrinkMenu.Children.Add(soda);
+            SpecialButtons.Children.Add(soda);
             soda.Click += new RoutedEventHandler(SelectFlavor);
         }
 
