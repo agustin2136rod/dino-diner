@@ -8,61 +8,69 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="SideSelection">
 
-    <WrapPanel>
-        <WrapPanel.Resources>
-            <Style TargetType="Button">
-                <Setter Property="Width" Value="200"/>
-                <Setter Property="Height" Value="200"/>
-            </Style>
-        </WrapPanel.Resources>
-        <Button>
-            <Button.Background>
-                <ImageBrush ImageSource="Photos/DinoDiner-08.png"/>
-            </Button.Background>
-            <DockPanel Height="200">
-                <TextBlock DockPanel.Dock="Bottom">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2*"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <WrapPanel>
+            <WrapPanel.Resources>
+                <Style TargetType="Button">
+                    <Setter Property="Width" Value="200"/>
+                    <Setter Property="Height" Value="200"/>
+                </Style>
+            </WrapPanel.Resources>
+            <Button Click="OnSelectFryceritops">
+                <Button.Background>
+                    <ImageBrush ImageSource="Photos/DinoDiner-08.png"/>
+                </Button.Background>
+                <DockPanel Height="200">
+                    <TextBlock DockPanel.Dock="Bottom">
                     Fryceritops
-                </TextBlock>
-            </DockPanel>
-        </Button>
-        <Button>
-            <Button.Background>
-                <ImageBrush ImageSource="Photos/DinoDiner-11.png"/>
-            </Button.Background>
-            <DockPanel Height="200">
-                <TextBlock DockPanel.Dock="Bottom">
+                    </TextBlock>
+                </DockPanel>
+            </Button>
+            <Button>
+                <Button.Background>
+                    <ImageBrush ImageSource="Photos/DinoDiner-11.png"/>
+                </Button.Background>
+                <DockPanel Height="200">
+                    <TextBlock DockPanel.Dock="Bottom">
                     Triceritots
-                </TextBlock>
-            </DockPanel>
-        </Button>
-        <Button>
-            <Button.Background>
-                <ImageBrush ImageSource="Photos/DinoDiner-09.png"/>
-            </Button.Background>
-            <DockPanel Height="200">
-                <TextBlock DockPanel.Dock="Bottom">
+                    </TextBlock>
+                </DockPanel>
+            </Button>
+            <Button>
+                <Button.Background>
+                    <ImageBrush ImageSource="Photos/DinoDiner-09.png"/>
+                </Button.Background>
+                <DockPanel Height="200">
+                    <TextBlock DockPanel.Dock="Bottom">
                     Meteor Mac &amp; Cheese
-                </TextBlock>
-            </DockPanel>
-        </Button>
-        <Button>
-            <Button.Background>
-                <ImageBrush ImageSource="Photos/DinoDiner-10.png"/>
-            </Button.Background>
-            <DockPanel Height="200">
-                <TextBlock DockPanel.Dock="Bottom">
+                    </TextBlock>
+                </DockPanel>
+            </Button>
+            <Button>
+                <Button.Background>
+                    <ImageBrush ImageSource="Photos/DinoDiner-10.png"/>
+                </Button.Background>
+                <DockPanel Height="200">
+                    <TextBlock DockPanel.Dock="Bottom">
                     Mozzerella Sticks
-                </TextBlock>
-            </DockPanel>
-        </Button>
-        <RadioButton FontSize="40">
+                    </TextBlock>
+                </DockPanel>
+            </Button>
+        </WrapPanel>
+        <WrapPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <RadioButton FontSize="40" Tag="Small" Click="OnChangeSize">
             Small
         </RadioButton>
-        <RadioButton FontSize="40">
+            <RadioButton FontSize="40" Tag="Medium" Click="OnChangeSize">
             Medium
         </RadioButton>
-        <RadioButton FontSize="40">
+            <RadioButton FontSize="40" Tag="Large" Click="OnChangeSize">
             Large
         </RadioButton>
     </WrapPanel>
+    </Grid>
 </Page>

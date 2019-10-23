@@ -24,5 +24,13 @@ namespace PointOfSale
         {
             InitializeComponent();
         }
+
+        private void OnSelectionChanged(object sender, EventArgs args)
+        {
+            //if (OrderItems.SelectedItem is Side)
+            //{
+
+            //}
+        }
     }
 }

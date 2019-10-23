@@ -1,6 +1,7 @@
 ﻿/* SideSelection.xaml.cs
  * Author: Agustin Rodriguez
  */
+using DinoDiner.Menu;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,6 +16,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using DDSize = DinoDiner.Menu.Size;
 
 namespace PointOfSale
 {
@@ -23,9 +25,30 @@ namespace PointOfSale
     /// </summary>
     public partial class SideSelection : Page
     {
+
+        public Side side { get; set; }
+
+
         public SideSelection()
         {
             InitializeComponent();
+        }
+
+        private void OnSelectFryceritops(object sender, RoutedEventArgs args)
+        {
+            if(DataContext is Order order)
+            {
+                side = new Fryceritops();
+                order.Items.Add(side);
+            }
+        }
+
+        private void OnChangeSize(object sender, RoutedEventArgs args)
+        {
+            if (sender is FrameworkElement element)
+            {
+                side.Size = (DDSize)Enum.Parse(typeof(DDSize), element.Tag.ToString());
+            }
         }
     }
 }
