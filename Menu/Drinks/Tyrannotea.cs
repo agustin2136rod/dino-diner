@@ -34,6 +34,7 @@ namespace DinoDiner.Menu
             {
                 sweet = value;
                 this.Size = this.Size;
+                NotifyOfPropertyChanged("Description");
             }
         }
 

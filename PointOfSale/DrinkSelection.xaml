@@ -21,7 +21,7 @@
                     <Setter Property="Height" Value="150"/>
                 </Style>
             </WrapPanel.Resources>
-            <Button Click="SelectTyrannotea">
+            <Button Click="SelectTyrannotea" Tag="Sweet">
                 <Button.Background>
                     <ImageBrush ImageSource="Photos/DinoDiner-12.png"/>
                 </Button.Background>
@@ -64,20 +64,35 @@
             
         </WrapPanel>
         <WrapPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-            <RadioButton FontSize="40" VerticalContentAlignment="Center">
+            <RadioButton FontSize="40" Tag="Small" Click="OnChangeSize">
                 Small
             </RadioButton>
-            <RadioButton FontSize="40" VerticalContentAlignment="Center">
+            <RadioButton FontSize="40" Tag="Medium" Click="OnChangeSize">
                 Medium
             </RadioButton>
-            <RadioButton FontSize="40" VerticalContentAlignment="Center" >
-                
+            <RadioButton FontSize="40" Tag="Large" Click="OnChangeSize">
                 Large
             </RadioButton>
         </WrapPanel>
-        <WrapPanel Name="SpecialButtons" HorizontalAlignment="Center"
-                   Grid.Row="2">
-            
+        <WrapPanel Grid.Row="2">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Name="Left" Width="300"/>
+                    <ColumnDefinition Name="Right" Width="300"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="100"/>
+                </Grid.RowDefinitions>
+                <WrapPanel Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Button Height="100" Width="100" Click="OnDone">Done</Button>
+                </WrapPanel>
+                <WrapPanel Grid.Column="0" 
+                           HorizontalAlignment="Center" 
+                           VerticalAlignment="Center" 
+                           Name="SpecialButtons">
+
+                </WrapPanel>
+            </Grid>
         </WrapPanel>
     </Grid>
     

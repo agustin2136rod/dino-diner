@@ -11,11 +11,11 @@
     <WrapPanel>
         <WrapPanel.Resources>
             <Style TargetType="Button">
-                <Setter Property="Width" Value="200"/>
-                <Setter Property="Height" Value="200"/>
+                <Setter Property="Width" Value="150"/>
+                <Setter Property="Height" Value="150"/>
             </Style>
         </WrapPanel.Resources>
-        <Button>
+        <Button Click="OnSelectBrontowurst" Name="BrontowurstButton">
             <Button.Background>
                 <ImageBrush ImageSource="Photos/DinoDiner-01.png"/>
             </Button.Background>
@@ -25,7 +25,7 @@
                 </TextBlock>
             </DockPanel>
         </Button>
-        <Button>
+        <Button Click="OnSelectDinoNuggets" Name="DinoNuggetsButton">
             <Button.Background>
                 <ImageBrush ImageSource="Photos/DinoDiner-02.png"/>
             </Button.Background>
@@ -35,7 +35,7 @@
                 </TextBlock>
             </DockPanel>
         </Button>
-        <Button>
+        <Button Click="OnSelectSteakosaurusBurger" Name="SteakosaurusButton">
             <Button.Background>
                 <ImageBrush ImageSource="Photos/DinoDiner-05.png"/>
             </Button.Background>
@@ -45,7 +45,7 @@
                 </TextBlock>
             </DockPanel>
         </Button>
-        <Button>
+        <Button Click="OnSelectTRexKingBurger" Name="TRexButton">
             <Button.Background>
                 <ImageBrush ImageSource="Photos/DinoDiner-06.png"/>
             </Button.Background>
@@ -55,7 +55,7 @@
                 </TextBlock>
             </DockPanel>
         </Button>
-        <Button>
+        <Button Click="OnSelectPrehistoricPBJ" Name="PrehistoricButton">
             <Button.Background>
                 <ImageBrush ImageSource="Photos/DinoDiner-03.png"/>
             </Button.Background>
@@ -65,7 +65,7 @@
                 </TextBlock>
             </DockPanel>
         </Button>
-        <Button>
+        <Button Click="OnSelectPterodactylWings" Name="PterodactylButton">
             <Button.Background>
                 <ImageBrush ImageSource="Photos/DinoDiner-04.png"/>
             </Button.Background>
@@ -75,7 +75,7 @@
                 </TextBlock>
             </DockPanel>
         </Button>
-        <Button>
+        <Button Click="OnSelectVelociWrap" Name="VelociwrapButton">
             <Button.Background>
                 <ImageBrush ImageSource="Photos/DinoDiner-07.png"/>
             </Button.Background>

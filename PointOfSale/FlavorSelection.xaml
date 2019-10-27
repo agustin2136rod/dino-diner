@@ -5,67 +5,67 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:PointOfSale"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="450" d:DesignWidth="400"
       Title="FlavorSelection">
 
     <WrapPanel>
         <WrapPanel.Resources>
             <Style TargetType="Button">
-                <Setter Property="Width" Value="200"/>
-                <Setter Property="Height" Value="200"/>
+                <Setter Property="Width" Value="100"/>
+                <Setter Property="Height" Value="100"/>
             </Style>
         </WrapPanel.Resources>
-        <Button>
+        <Button Click="OnSelectCherry" Tag="Cherry" Name="CherryButton">
             
-            <DockPanel Height="200">
+            <DockPanel Height="90">
                 <TextBlock DockPanel.Dock="Top">
                     Cherry
                 </TextBlock>
             </DockPanel>
         </Button>
-        <Button>
+        <Button Click="OnSelectChocolate" Tag="Chocolate" Name="ChocolateButton">
             
-            <DockPanel Height="200">
+            <DockPanel Height="90">
                 <TextBlock DockPanel.Dock="Top">
                     Chocolate
                 </TextBlock>
             </DockPanel>
         </Button>
-        <Button>
+        <Button Click="OnSelectCola" Tag="Cola" Name="ColaButton">
             
-            <DockPanel Height="200">
+            <DockPanel Height="90">
                 <TextBlock DockPanel.Dock="Top">
                     Cola
                 </TextBlock>
             </DockPanel>
         </Button>
-        <Button>
+        <Button Click="OnSelectLime" Tag="Lime" Name="LimeButton">
            
-            <DockPanel Height="200">
+            <DockPanel Height="90">
                 <TextBlock DockPanel.Dock="Top">
                     Lime
                 </TextBlock>
             </DockPanel>
         </Button>
-        <Button>
+        <Button Click="OnSelectOrange" Tag="Orange" Name="OrangeButton">
             
-            <DockPanel Height="200">
+            <DockPanel Height="90">
                 <TextBlock DockPanel.Dock="Top">
                     Orange
                 </TextBlock>
             </DockPanel>
         </Button>
-        <Button>
+        <Button Click="OnSelectRootBeer" Tag="RootBeer" Name="RootBeerButton">
             
-            <DockPanel Height="200">
+            <DockPanel Height="90">
                 <TextBlock DockPanel.Dock="Top">
                     Root Beer
                 </TextBlock>
             </DockPanel>
         </Button>
-        <Button>
+        <Button Click="OnSelectVanilla" Tag="Vanilla" Name="VanillaButton">
             
-            <DockPanel Height="200">
+            <DockPanel Height="90">
                 <TextBlock DockPanel.Dock="Top">
                     Vanilla
                 </TextBlock>

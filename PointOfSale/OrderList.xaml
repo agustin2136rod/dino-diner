@@ -30,11 +30,20 @@
                  Grid.ColumnSpan="2"
                  ItemsSource="{Binding Path=Items}"
                  SelectionChanged="OnSelectionChanged"
+                 IsSynchronizedWithCurrentItem="True"
                  >
             <ListBox.ItemTemplate>
                 <DataTemplate>
-                    <StackPanel>
-                        <TextBlock Text="{Binding Path=Description}"/>
+                    <StackPanel MinWidth="190">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition Width="15"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Text="{Binding Path=Description}"/>
+                            <Button Click="RemoveItem" Grid.Column="1" Background="Red" Foreground="White">X</Button>
+                            
+                        </Grid>
                         <ListBox ItemsSource="{Binding Path=Special}"
                                  BorderBrush="White"/>
                     </StackPanel>
@@ -47,8 +56,10 @@
                    Grid.Row="2"
                    />
         <TextBlock Text="{Binding Path=SubtotalCost}"
+                   FontWeight="Bold"
                    Grid.Row="2"
                    Grid.Column="1"
+                   Name="Cost"
                    />
         <Button Grid.Row="3">Cancel</Button>
         <Button Grid.Row="3" Grid.Column="1">Pay</Button>

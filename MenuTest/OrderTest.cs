@@ -22,11 +22,14 @@ namespace MenuTest
         {
             Order order = new Order();
             MockEntree entree = new MockEntree(-10);
-            order.Items.Add(entree);
+            order.Add(entree);
             Assert.Equal<double>(0, order.SubtotalCost);
 
         }
-
+        
+        /// <summary>
+        /// checks to ensure that subtotal cost of the order is correct
+        /// </summary>
         [Fact]
         public void SubtotalCostIsCorrect()
         {
@@ -34,12 +37,15 @@ namespace MenuTest
             MockEntree entree = new MockEntree(2);
             MockSide side = new MockSide(2);
             MockDrink drink = new MockDrink(2);
-            order.Items.Add(entree);
-            order.Items.Add(side);
-            order.Items.Add(drink);
+            order.Add(entree);
+            order.Add(side);
+            order.Add(drink);
             Assert.Equal<double>(6, order.SubtotalCost);
         }
 
+        /// <summary>
+        /// checks to ensure that salestax cost is correct for the order
+        /// </summary>
         [Fact]
         public void SalesTaxCostIsCorrect()
         {
@@ -47,12 +53,15 @@ namespace MenuTest
             MockEntree entree = new MockEntree(2);
             MockSide side = new MockSide(2);
             MockDrink drink = new MockDrink(2);
-            order.Items.Add(entree);
-            order.Items.Add(side);
-            order.Items.Add(drink);
+            order.Add(entree);
+            order.Add(side);
+            order.Add(drink);
             Assert.Equal<double>(.39, order.SalesTaxCost);
         }
 
+        /// <summary>
+        /// checks to see that sales tax rate is correct for the order
+        /// </summary>
         [Fact]
         public void SalesTaxRateIsCorrect()
         {
@@ -60,6 +69,9 @@ namespace MenuTest
             Assert.Equal<double>(.065, order.SalesTaxRate);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
         [Fact]
         public void TotalCostIsCorrect()
         {
@@ -67,9 +79,9 @@ namespace MenuTest
             MockEntree entree = new MockEntree(2);
             MockSide side = new MockSide(2);
             MockDrink drink = new MockDrink(2);
-            order.Items.Add(entree);
-            order.Items.Add(side);
-            order.Items.Add(drink);
+            order.Add(entree);
+            order.Add(side);
+            order.Add(drink);
             Assert.Equal<double>(6.39, order.TotalCost);
         }
     }

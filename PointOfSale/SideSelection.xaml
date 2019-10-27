@@ -16,8 +16,8 @@
         <WrapPanel>
             <WrapPanel.Resources>
                 <Style TargetType="Button">
-                    <Setter Property="Width" Value="200"/>
-                    <Setter Property="Height" Value="200"/>
+                    <Setter Property="Width" Value="125"/>
+                    <Setter Property="Height" Value="150"/>
                 </Style>
             </WrapPanel.Resources>
             <Button Click="OnSelectFryceritops">
@@ -30,7 +30,7 @@
                     </TextBlock>
                 </DockPanel>
             </Button>
-            <Button>
+            <Button Click="OnSelectTriceritots">
                 <Button.Background>
                     <ImageBrush ImageSource="Photos/DinoDiner-11.png"/>
                 </Button.Background>
@@ -40,7 +40,7 @@
                     </TextBlock>
                 </DockPanel>
             </Button>
-            <Button>
+            <Button Click="OnSelectMeteorMacAndCheese">
                 <Button.Background>
                     <ImageBrush ImageSource="Photos/DinoDiner-09.png"/>
                 </Button.Background>
@@ -50,13 +50,13 @@
                     </TextBlock>
                 </DockPanel>
             </Button>
-            <Button>
+            <Button Click="OnSelectMezzorellaSticks">
                 <Button.Background>
                     <ImageBrush ImageSource="Photos/DinoDiner-10.png"/>
                 </Button.Background>
                 <DockPanel Height="200">
                     <TextBlock DockPanel.Dock="Bottom">
-                    Mozzerella Sticks
+                    Mezzorella Sticks
                     </TextBlock>
                 </DockPanel>
             </Button>

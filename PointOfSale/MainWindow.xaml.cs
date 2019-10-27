@@ -24,10 +24,16 @@ namespace PointOfSale
     /// </summary>
     public partial class MainWindow : Window
     {
+        /// <summary>
+        /// constructor for the class
+        /// </summary>
         public MainWindow()
         {
             InitializeComponent();
             Order order = DataContext as Order;
+            OrderUI.Navigate(new MenuCategorySelection());
+            Order.NavigationService = OrderUI.NavigationService;
+            /*
             if (order != null)
             {
                 order.Items.Add(new PrehistoricPBJ());
@@ -38,8 +44,12 @@ namespace PointOfSale
                 sb.HoldBun();
                 order.Items.Add(sb);
             }
+            */
         }
 
+        /// <summary>
+        /// this method will pass on data content if its a page that its being passed to
+        /// </summary>
         private void PassDataContentToPage()
         {
             if (OrderUI.Content is Page page)
@@ -48,11 +58,21 @@ namespace PointOfSale
             }
         }
 
+        /// <summary>
+        /// When the load has completed, the passdatacontenttopage method is called
+        /// </summary>
+        /// <param name="sender">sender is the object reference</param>
+        /// <param name="args">args is the event data</param>
         private void OnLoadCompleted(object sender, NavigationEventArgs args)
         {
             PassDataContentToPage();
         }
 
+        /// <summary>
+        /// if any data context is changed, this method will update and notify through the PassDataContentToPage method
+        /// </summary>
+        /// <param name="sender">sender is the object reference</param>
+        /// <param name="args">args is the event data</param>
         private void OnDataContextChanged(object sender, DependencyPropertyChangedEventArgs args)
         {
             PassDataContentToPage();
