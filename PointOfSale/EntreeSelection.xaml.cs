@@ -35,6 +35,7 @@ namespace PointOfSale
         public EntreeSelection()
         {
             InitializeComponent();
+            //entree = e;
         }
 
         /// <summary>
@@ -48,8 +49,8 @@ namespace PointOfSale
             {
                 entree = new Brontowurst();
                 order.Add(entree);
+                NavigationService.Navigate(new CustomizeBrontowurst((Brontowurst)entree));
             }
-            MenuCategorySelectionPage(sender, args);
         }
 
         /// <summary>
@@ -73,8 +74,9 @@ namespace PointOfSale
             {
                 entree = new DinoNuggets();
                 order.Add(entree);
+                NavigationService.Navigate(new CustomizeDinoNuggets((DinoNuggets)entree));
             }
-            MenuCategorySelectionPage(sender, args);
+            
         }
 
         /// <summary>
@@ -88,8 +90,8 @@ namespace PointOfSale
             {
                 entree = new PrehistoricPBJ();
                 order.Add(entree);
+                NavigationService.Navigate(new CustomizePrehistoricPBJ((PrehistoricPBJ)entree));
             }
-            MenuCategorySelectionPage(sender, args);
         }
 
         /// <summary>
@@ -117,9 +119,9 @@ namespace PointOfSale
             if (DataContext is Order order)
             {
                 entree = new SteakosaurusBurger();
-                order.Add(entree); 
+                order.Add(entree);
+                NavigationService.Navigate(new CustomizeSteakosaurusBurger((SteakosaurusBurger)entree));
             }
-            MenuCategorySelectionPage(sender, args);
         }
 
         /// <summary>
