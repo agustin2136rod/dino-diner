@@ -135,8 +135,8 @@ namespace PointOfSale
             {
                 entree = new TRexKingBurger();
                 order.Add(entree);
+                NavigationService.Navigate(new CustomizeTRexKingBurger((TRexKingBurger)entree));
             }
-            MenuCategorySelectionPage(sender, args);
         }
 
         /// <summary>
@@ -150,8 +150,8 @@ namespace PointOfSale
             {
                 entree = new VelociWrap();
                 order.Add(entree);
+                NavigationService.Navigate(new CustomizeVelociwrap((VelociWrap)entree));
             }
-            MenuCategorySelectionPage(sender, args);
         }
     }
 }

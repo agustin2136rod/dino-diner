@@ -9,6 +9,25 @@
       Title="CustomizeTRexKingBurger">
 
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Button Click="OnHoldBun" Grid.Column="0" Grid.Row="0">Hold Bun</Button>
+        <Button Click="OnHoldLettuce" Grid.Column="0" Grid.Row="3">Hold Lettuce</Button>
+        <Button Click="OnHoldPickle" Grid.Column="0" Grid.Row="4">Hold Pickle</Button>
+        <Button Click="OnHoldKetchup" Grid.Row="1" Grid.Column="0">Hold Ketchup</Button>
+        <Button Click="OnHoldMustard" Grid.Column="0" Grid.Row="2">Hold Mustard</Button>
+        <Button Click="OnHoldTomato" Grid.Column="1" Grid.Row="0">Hold Tomato</Button>
+        <Button Click="OnHoldMayo" Grid.Row="1" Grid.Column="1">Hold Mayo</Button>
+        <Button Click="OnHoldOnion" Grid.Column="1" Grid.Row="2">Hold Onion</Button>
+        <Button Click="OnDone" Grid.Row="4" Grid.Column="1">Done</Button>
     </Grid>
 </Page>

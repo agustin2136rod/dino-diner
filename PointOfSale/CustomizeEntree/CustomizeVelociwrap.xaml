@@ -9,6 +9,18 @@
       Title="CustomizeVelociwrap">
 
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Button Click="OnHoldDressing" Grid.Column="0" Grid.Row="0">Hold Dressing</Button>
+        <Button Click="OnHoldLettuce" Grid.Column="0" Grid.Row="2">Hold Lettuce</Button>
+        <Button Click="OnHoldCheese" Grid.Row="1" Grid.Column="0">Hold Cheese</Button>
+        <Button Click="OnDone" Grid.Row="2" Grid.Column="1">Done</Button>
     </Grid>
 </Page>
