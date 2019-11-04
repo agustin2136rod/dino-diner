@@ -29,6 +29,9 @@ namespace PointOfSale
         /// </summary>
         private PrehistoricPBJ pbj;
 
+
+        CretaceousCombo combo;
+
         /// <summary>
         /// constructor for this class that sets the pbj to the one brought in as a parameter
         /// </summary>
@@ -36,6 +39,16 @@ namespace PointOfSale
         {
             InitializeComponent();
             pbj = pBJ;
+        }
+
+        /// <summary>
+        /// constructor for this class that sets the pbj to the one brought in as a parameter
+        /// </summary>
+        public CustomizePrehistoricPBJ(CretaceousCombo combo)
+        {
+            InitializeComponent();
+            this.combo = combo;
+            pbj = (PrehistoricPBJ)combo.Entree;
         }
 
         /// <summary>
@@ -65,7 +78,14 @@ namespace PointOfSale
         /// <param name="args">args is the data content</param>
         private void OnDone(object sender, RoutedEventArgs args)
         {
-            NavigationService.GoBack();
+            if (combo != null)
+            {
+                NavigationService.Navigate(new CustomizeCombo(combo));
+            }
+            else
+            {
+                NavigationService.GoBack();
+            }            
         }
     }
 }

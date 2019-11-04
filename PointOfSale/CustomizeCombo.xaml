@@ -17,8 +17,8 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <Button Click="SelectSide" Grid.Row="0">Fryceritops</Button>
-        <Button Click="SelectDrink" Grid.Row="1">Sodasaurus</Button>
+        <Button Click="SelectSide" Grid.Row="0" Name="Side"></Button>
+        <Button Click="SelectDrink" Grid.Row="1" Name="Drink"></Button>
         <StackPanel Grid.Row="2">
             <RadioButton Grid.Row="2" FontSize="20">Small</RadioButton>
             <RadioButton Grid.Row="2" FontSize="20">Medium</RadioButton>

@@ -56,6 +56,7 @@ namespace MenuTest
             order.Add(entree);
             order.Add(side);
             order.Add(drink);
+            order.SalesTaxRate = .065;
             Assert.Equal<double>(.39, order.SalesTaxCost);
         }
 
@@ -65,7 +66,9 @@ namespace MenuTest
         [Fact]
         public void SalesTaxRateIsCorrect()
         {
+
             Order order = new Order();
+            order.SalesTaxRate = .065;
             Assert.Equal<double>(.065, order.SalesTaxRate);
         }
 
@@ -82,6 +85,7 @@ namespace MenuTest
             order.Add(entree);
             order.Add(side);
             order.Add(drink);
+            order.SalesTaxRate = .065;
             Assert.Equal<double>(6.39, order.TotalCost);
         }
     }

@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:PointOfSale"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="450" d:DesignWidth="500"
       Title="ComboSelection">
 
     <WrapPanel>
@@ -15,7 +15,7 @@
                 <Setter Property="Height" Value="200"/>
             </Style>
         </WrapPanel.Resources>
-        <Button Click="CustomCombo">
+        <Button Click="CustomBrontowurst">
             <Button.Background>
                 <ImageBrush ImageSource="Photos/DinoDiner-01.png"/>
             </Button.Background>
@@ -25,7 +25,7 @@
                 </TextBlock>
             </DockPanel>
         </Button>
-        <Button Click="CustomCombo">
+        <Button Click="CustomNuggets">
             <Button.Background>
                 <ImageBrush ImageSource="Photos/DinoDiner-02.png"/>
             </Button.Background>
@@ -35,7 +35,7 @@
                 </TextBlock>
             </DockPanel>
         </Button>
-        <Button Click="CustomCombo">
+        <Button Click="CustomSteakosaurus">
             <Button.Background>
                 <ImageBrush ImageSource="Photos/DinoDiner-05.png"/>
             </Button.Background>
@@ -45,7 +45,7 @@
                 </TextBlock>
             </DockPanel>
         </Button>
-        <Button Click="CustomCombo">
+        <Button Click="CustomTRexBurger">
             <Button.Background>
                 <ImageBrush ImageSource="Photos/DinoDiner-06.png"/>
             </Button.Background>
@@ -55,7 +55,7 @@
                 </TextBlock>
             </DockPanel>
         </Button>
-        <Button Click="CustomCombo">
+        <Button Click="CustomPBJ">
             <Button.Background>
                 <ImageBrush ImageSource="Photos/DinoDiner-03.png"/>
             </Button.Background>
@@ -65,7 +65,7 @@
                 </TextBlock>
             </DockPanel>
         </Button>
-        <Button Click="CustomCombo">
+        <Button Click="CustomWings">
             <Button.Background>
                 <ImageBrush ImageSource="Photos/DinoDiner-04.png"/>
             </Button.Background>
@@ -75,7 +75,7 @@
                 </TextBlock>
             </DockPanel>
         </Button>
-        <Button Click="CustomCombo">
+        <Button Click="CustomWrap">
             <Button.Background>
                 <ImageBrush ImageSource="Photos/DinoDiner-07.png"/>
             </Button.Background>

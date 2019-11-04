@@ -24,11 +24,21 @@ namespace PointOfSale
 
         DinoNuggets nuggets;
 
+        CretaceousCombo combo;
+
         public CustomizeDinoNuggets(DinoNuggets nuggs)
         {
             InitializeComponent();
             nuggets = nuggs;
         }
+
+        public CustomizeDinoNuggets(CretaceousCombo combo)
+        {
+            InitializeComponent();
+            this.combo = combo;
+            nuggets = (DinoNuggets)combo.Entree;
+        }
+
 
         /// <summary>
         /// this method will take us back to the previous page
@@ -37,7 +47,14 @@ namespace PointOfSale
         /// <param name="args">args is the data content</param>
         private void OnDone(object sender, RoutedEventArgs args)
         {
-            NavigationService.GoBack();
+            if (combo == null)
+            {
+                NavigationService.GoBack();
+            }
+            if (combo != null)
+            {
+                NavigationService.Navigate(new CustomizeCombo(combo));
+            }
         }
 
         /// <summary>

@@ -24,10 +24,19 @@ namespace PointOfSale
 
         TRexKingBurger burger;
 
+        CretaceousCombo combo;
+
         public CustomizeTRexKingBurger(TRexKingBurger b)
         {
             InitializeComponent();
             burger = b;
+        }
+
+        public CustomizeTRexKingBurger(CretaceousCombo combo)
+        {
+            InitializeComponent();
+            this.combo = combo;
+            burger = (TRexKingBurger)combo.Entree;
         }
 
         private void OnHoldMayo(object sender, RoutedEventArgs args)
@@ -77,7 +86,14 @@ namespace PointOfSale
         /// <param name="args">args is the data content</param>
         private void OnDone(object sender, RoutedEventArgs args)
         {
-            NavigationService.GoBack();
+            if (combo != null)
+            {
+                NavigationService.Navigate(new CustomizeCombo(combo));
+            }
+            else
+            {
+                NavigationService.GoBack();
+            }
         }
     }
 }

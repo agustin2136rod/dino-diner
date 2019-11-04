@@ -24,10 +24,19 @@ namespace PointOfSale
 
         SteakosaurusBurger burger;
 
+        CretaceousCombo combo;
+
         public CustomizeSteakosaurusBurger(SteakosaurusBurger b)
         {
             InitializeComponent();
             burger = b;
+        }
+
+        public CustomizeSteakosaurusBurger(CretaceousCombo combo)
+        {
+            InitializeComponent();
+            this.combo = combo;
+            burger = (SteakosaurusBurger)combo.Entree;
         }
 
         /// <summary>
@@ -37,7 +46,14 @@ namespace PointOfSale
         /// <param name="args">args is the data content</param>
         private void OnDone(object sender, RoutedEventArgs args)
         {
-            NavigationService.GoBack();
+            if (combo != null)
+            {
+                NavigationService.Navigate(new CustomizeCombo(combo));
+            }
+            else
+            {
+                NavigationService.GoBack();
+            }            
         }
 
 

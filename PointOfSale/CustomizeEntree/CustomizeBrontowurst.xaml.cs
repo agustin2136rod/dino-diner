@@ -21,14 +21,30 @@ namespace PointOfSale
     /// </summary>
     public partial class CustomizeBrontowurst : Page
     {
-
+        /// <summary>
+        /// braut private variable
+        /// </summary>
         Brontowurst braut;
+
+        /// <summary>
+        /// if we are dealing with customize combo
+        /// </summary>
+        CretaceousCombo combo;
 
         public CustomizeBrontowurst(Brontowurst wurst)
         {
             InitializeComponent();
             braut = wurst;
         }
+
+        public CustomizeBrontowurst(CretaceousCombo combo)
+        {
+            InitializeComponent();
+            this.combo = combo;
+            braut = (Brontowurst)combo.Entree;
+        }
+
+
 
         private void OnHoldBun(object sender, RoutedEventArgs args)
         {
@@ -52,7 +68,14 @@ namespace PointOfSale
         /// <param name="args">args is the data content</param>
         private void OnDone(object sender, RoutedEventArgs args)
         {
-            NavigationService.GoBack();
+            if (combo != null)
+            {
+                NavigationService.Navigate(new CustomizeCombo(combo));
+            }
+            else
+            {
+                NavigationService.GoBack();
+            }            
         }
     }
 }

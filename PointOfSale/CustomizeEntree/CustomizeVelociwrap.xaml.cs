@@ -24,10 +24,19 @@ namespace PointOfSale
 
         VelociWrap wrap;
 
+        CretaceousCombo combo;
+
         public CustomizeVelociwrap(VelociWrap veloci)
         {
             InitializeComponent();
             wrap = veloci;
+        }
+
+        public CustomizeVelociwrap(CretaceousCombo combo)
+        {
+            InitializeComponent();
+            this.combo = combo;
+            wrap = (VelociWrap)combo.Entree;
         }
 
         private void OnHoldLettuce(object sender, RoutedEventArgs args)
@@ -52,7 +61,14 @@ namespace PointOfSale
         /// <param name="args">args is the data content</param>
         private void OnDone(object sender, RoutedEventArgs args)
         {
-            NavigationService.GoBack();
+            if (combo != null)
+            {
+                NavigationService.Navigate(new CustomizeCombo(combo));
+            }
+            else
+            {
+                NavigationService.GoBack();
+            }
         }
 
     }
