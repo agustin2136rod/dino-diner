@@ -24,7 +24,9 @@ namespace PointOfSale
     /// </summary>
     public partial class ComboSelection : Page
     {
-
+        /// <summary>
+        /// combo backing variable
+        /// </summary>
         CretaceousCombo combo;
 
         

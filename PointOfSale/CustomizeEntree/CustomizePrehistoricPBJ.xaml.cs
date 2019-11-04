@@ -29,7 +29,9 @@ namespace PointOfSale
         /// </summary>
         private PrehistoricPBJ pbj;
 
-
+        /// <summary>
+        /// combo backing variable
+        /// </summary>
         CretaceousCombo combo;
 
         /// <summary>
@@ -42,7 +44,7 @@ namespace PointOfSale
         }
 
         /// <summary>
-        /// constructor for this class that sets the pbj to the one brought in as a parameter
+        /// constructor for this class that deals with combos being brought in
         /// </summary>
         public CustomizePrehistoricPBJ(CretaceousCombo combo)
         {
@@ -72,7 +74,7 @@ namespace PointOfSale
         }
 
         /// <summary>
-        /// this method will take us back to 
+        /// this method will take us back to customize combo or go back
         /// </summary>
         /// <param name="sender">sender is the object reference</param>
         /// <param name="args">args is the data content</param>

@@ -65,6 +65,11 @@ namespace DinoDiner.Menu
             {
                 side = value;
                 side.Size = this.size;
+                Side.PropertyChanged += (object sender, PropertyChangedEventArgs args) =>
+                {
+                    NotifyOfPropertyChanged(args.PropertyName);
+                };
+                NotifyOfPropertyChanged("Description");
             }
         }
 

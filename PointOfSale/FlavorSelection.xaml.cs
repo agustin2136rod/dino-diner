@@ -36,15 +36,31 @@ namespace PointOfSale
         public DDFlavor flavor { get; set; }
 
         /// <summary>
+        /// combo backing variable dealt with in this class
+        /// </summary>
+        CretaceousCombo combo;
+
+        /// <summary>
         /// initialize form
         /// </summary>
         public FlavorSelection(Sodasaurus soda)
         {
             InitializeComponent();
             tempsoda = soda;
+            
         }
 
-       
+        /// <summary>
+        /// combo selection form thatll allow drink flavor to be changed in the order for combo
+        /// </summary>
+        public FlavorSelection(CretaceousCombo combo)
+        {
+            InitializeComponent();
+            this.combo = combo;
+            tempsoda = (Sodasaurus)combo.Drink;
+        }
+
+
         /// <summary>
         /// If cherry is selected as the flavor, then the description is updated and returns to drink selection page
         /// </summary>
@@ -55,6 +71,10 @@ namespace PointOfSale
             if (sender is FrameworkElement element)
             {
                 tempsoda.Flavor = (DDFlavor)Enum.Parse(typeof(DDFlavor), element.Tag.ToString());
+                if (combo != null)
+                {
+                    combo.Drink = tempsoda;
+                }
             }
             ReturnToDrinks(sender, args);
         }
@@ -69,6 +89,10 @@ namespace PointOfSale
             if (sender is FrameworkElement element)
             {
                 tempsoda.Flavor = (DDFlavor)Enum.Parse(typeof(DDFlavor), element.Tag.ToString());
+                if (combo != null)
+                {
+                    combo.Drink = tempsoda;
+                }
             }
             ReturnToDrinks(sender, args);
         }
@@ -83,6 +107,10 @@ namespace PointOfSale
             if (sender is FrameworkElement element)
             {
                 tempsoda.Flavor = (DDFlavor)Enum.Parse(typeof(DDFlavor), element.Tag.ToString());
+                if (combo != null)
+                {
+                    combo.Drink = tempsoda;
+                }
             }
             ReturnToDrinks(sender, args);
         }
@@ -97,6 +125,10 @@ namespace PointOfSale
             if (sender is FrameworkElement element)
             {
                 tempsoda.Flavor = (DDFlavor)Enum.Parse(typeof(DDFlavor), element.Tag.ToString());
+                if (combo != null)
+                {
+                    combo.Drink = tempsoda;
+                }
             }
             ReturnToDrinks(sender, args);
         }
@@ -111,6 +143,10 @@ namespace PointOfSale
             if (sender is FrameworkElement element)
             {
                 tempsoda.Flavor = (DDFlavor)Enum.Parse(typeof(DDFlavor), element.Tag.ToString());
+                if (combo != null)
+                {
+                    combo.Drink = tempsoda;
+                }
             }
             ReturnToDrinks(sender, args);
         }
@@ -125,6 +161,10 @@ namespace PointOfSale
             if (sender is FrameworkElement element)
             {
                 tempsoda.Flavor = (DDFlavor)Enum.Parse(typeof(DDFlavor), element.Tag.ToString());
+                if (combo != null)
+                {
+                    combo.Drink = tempsoda;
+                }
             }
             ReturnToDrinks(sender, args);
         }
@@ -139,18 +179,29 @@ namespace PointOfSale
             if (sender is FrameworkElement element)
             {
                 tempsoda.Flavor = (DDFlavor)Enum.Parse(typeof(DDFlavor), element.Tag.ToString());
+                if (combo != null)
+                {
+                    combo.Drink = tempsoda;
+                }
             }
             ReturnToDrinks(sender, args);
         }
 
         /// <summary>
-        /// this method will return to the drink selection page and will pass in the soda object with the selected flavor
+        /// this method will return to the drink selection page and will pass in the soda object with the selected flavor or combo object with combo drink
         /// </summary>
         /// <param name="sender">sender is the object reference</param>
         /// <param name="args">args is the event data</param>
         void ReturnToDrinks(object sender, RoutedEventArgs args)
         {
-            NavigationService.Navigate(new DrinkSelection(tempsoda));
+            if (combo != null)
+            {
+                NavigationService.Navigate(new DrinkSelection(combo));
+            }
+           else
+            {
+                NavigationService.Navigate(new DrinkSelection(tempsoda));
+            }
         }
     }
 }

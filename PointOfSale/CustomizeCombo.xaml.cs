@@ -16,6 +16,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using DinoDiner.Menu;
+using Size = DinoDiner.Menu.Size;
 
 namespace PointOfSale
 {
@@ -24,12 +25,24 @@ namespace PointOfSale
     /// </summary>
     public partial class CustomizeCombo : Page
     {
-
+        
+        /// <summary>
+        /// backing combo object
+        /// </summary>
         CretaceousCombo combo;
+
+        /// <summary>
+        /// order backing object
+        /// </summary>
         Order order = new Order();
 
         /// <summary>
-        /// initialize form
+        /// size enum for changing size of combo
+        /// </summary>
+        Size size { get; set; }
+        
+        /// <summary>
+        /// initialize form and set combo
         /// </summary>
         public CustomizeCombo(CretaceousCombo combo)
         {
@@ -50,6 +63,42 @@ namespace PointOfSale
         }
 
         /// <summary>
+        /// sets the combo size to small
+        /// </summary>
+        /// <param name="sender">object reference</param>
+        /// <param name="args">event data</param>
+        void OnSmall(object sender, RoutedEventArgs args)
+        {
+            combo.Size = Size.Small;
+            Side.Content = this.combo.Side.ToString();
+            Drink.Content = this.combo.Drink.ToString();
+        }
+
+        /// <summary>
+        /// sets the combo size to medium
+        /// </summary>
+        /// <param name="sender">object reference</param>
+        /// <param name="args">event data</param>
+        void OnMedium(object sender, RoutedEventArgs args)
+        {
+            combo.Size = Size.Medium;
+            Side.Content = this.combo.Side.ToString();
+            Drink.Content = this.combo.Drink.ToString();
+        }
+
+        /// <summary>
+        /// sets the combo size to Large
+        /// </summary>
+        /// <param name="sender">object reference</param>
+        /// <param name="args">event data</param>
+        void OnLarge(object sender, RoutedEventArgs args)
+        {
+            combo.Size = Size.Large;
+            Side.Content = this.combo.Side.ToString();
+            Drink.Content = this.combo.Drink.ToString();
+        }
+
+        /// <summary>
         /// navigates to the side selection form
         /// </summary>
         /// <param name="sender">reference to the control</param>
@@ -66,7 +115,7 @@ namespace PointOfSale
         /// <param name="args">contains the event data</param>
         void SelectDrink(object sender, RoutedEventArgs args)
         {
-            NavigationService.Navigate(new DrinkSelection());
+            NavigationService.Navigate(new DrinkSelection(combo));
         }
     }
 }

@@ -71,11 +71,28 @@ namespace PointOfSale
         Order order;
 
         /// <summary>
+        /// combo backing variable
+        /// </summary>
+        CretaceousCombo combo;
+
+        /// <summary>
         /// initializes the xaml DrinkSelection
         /// </summary>
         public DrinkSelection()
         {
             InitializeComponent();
+        }
+
+        /// <summary>
+        /// constructor that deals with combo selection
+        /// </summary>
+        /// <param name="combo">combo object brought in</param>
+        public DrinkSelection(CretaceousCombo combo)
+        {
+            InitializeComponent();
+            this.combo = combo;
+            this.drink = (Drink)combo.Drink;
+
         }
 
         /// <summary>
@@ -90,25 +107,42 @@ namespace PointOfSale
 
 
         /// <summary>
-        /// event handler for water that deals with adding lemon
+        /// event handler for water that deals with adding water to the order
         /// </summary>
         /// <param name="sender">reference to the control</param>
         /// <param name="args">contains the event data</param>
         private void SelectWater(object sender, RoutedEventArgs args)
         {
-            order = DataContext as Order;
-            drink = new Water();
-            water = (Water)drink;
-            lemon = new Button();
-            SpecialButtons.Children.Clear();
-            lemon.Height = 100;
-            lemon.Width = 100;
-            lemon.Content = "AddLemon";
-            SpecialButtons.Children.Add(lemon);
-            
-            lemon.Click += new RoutedEventHandler(OnAddLemonWater);
-            order.Add(water);
-            
+            if (combo != null)
+            {
+                order = DataContext as Order;
+                drink = new Water();
+                water = (Water)drink;
+                combo.Drink = water;
+                lemon = new Button();
+                SpecialButtons.Children.Clear();
+                lemon.Height = 100;
+                lemon.Width = 100;
+                lemon.Content = "AddLemon";
+                SpecialButtons.Children.Add(lemon);
+
+                lemon.Click += new RoutedEventHandler(OnAddLemonWater);
+            }
+            else
+            {
+                order = DataContext as Order;
+                drink = new Water();
+                water = (Water)drink;
+                lemon = new Button();
+                SpecialButtons.Children.Clear();
+                lemon.Height = 100;
+                lemon.Width = 100;
+                lemon.Content = "AddLemon";
+                SpecialButtons.Children.Add(lemon);
+
+                lemon.Click += new RoutedEventHandler(OnAddLemonWater);
+                order.Add(water);
+            }         
         }
 
         /// <summary>
@@ -118,7 +152,15 @@ namespace PointOfSale
         /// <param name="args">contains the event data</param>
         void OnAddLemonWater(object sender, RoutedEventArgs args)
         {
-            water.AddLemon();
+            if (combo != null)
+            {
+                water.AddLemon();
+                combo.Drink = water;
+            }
+            else
+            {
+                water.AddLemon();
+            }            
         }
 
         /// <summary>
@@ -128,7 +170,15 @@ namespace PointOfSale
         /// <param name="args">contains the event data</param>
         void OnAddLemonTea(object sender, RoutedEventArgs args)
         {
-            tea.AddLemon();
+            if (combo != null)
+            {
+                tea.AddLemon();
+                combo.Drink = tea;
+            }
+            else
+            {
+                tea.AddLemon();
+            }
         }
 
         /// <summary>
@@ -140,8 +190,10 @@ namespace PointOfSale
         {
             if (sender is FrameworkElement element)
             {
-                drink.Size = (DDSize)Enum.Parse(typeof(DDSize), element.Tag.ToString());
-                
+                if (combo == null)
+                {
+                    drink.Size = (DDSize)Enum.Parse(typeof(DDSize), element.Tag.ToString());
+                }               
             }
         }
 
@@ -152,25 +204,49 @@ namespace PointOfSale
         /// <param name="args">contains the event data</param>
         private void SelectTyrannotea(object sender, RoutedEventArgs args)
         {
-            order = DataContext as Order;
-            drink = new Tyrannotea();
-            tea = (Tyrannotea)drink;
-            SpecialButtons.Children.Clear();
-            sweet = new Button();
-            sweet.Height = 100;
-            sweet.Width = 100;
-            sweet.Content = "Sweet";
-            SpecialButtons.Children.Add(sweet);
-            sweet.Click += new RoutedEventHandler(OnAddSweet);
+            if (combo != null)
+            {
+                order = DataContext as Order;
+                drink = new Tyrannotea();
+                tea = (Tyrannotea)drink;
+                combo.Drink = tea;
+                SpecialButtons.Children.Clear();
+                sweet = new Button();
+                sweet.Height = 100;
+                sweet.Width = 100;
+                sweet.Content = "Sweet";
+                SpecialButtons.Children.Add(sweet);
+                sweet.Click += new RoutedEventHandler(OnAddSweet);
 
-            lemon = new Button();
-            lemon.Height = 100;
-            lemon.Width = 100;
-            lemon.Content = "AddLemon";
-            SpecialButtons.Children.Add(lemon);
-            lemon.Click += new RoutedEventHandler(OnAddLemonTea);
+                lemon = new Button();
+                lemon.Height = 100;
+                lemon.Width = 100;
+                lemon.Content = "AddLemon";
+                SpecialButtons.Children.Add(lemon);
+                lemon.Click += new RoutedEventHandler(OnAddLemonTea);
+            }
+            else
+            {
+                order = DataContext as Order;
+                drink = new Tyrannotea();
+                tea = (Tyrannotea)drink;
+                SpecialButtons.Children.Clear();
+                sweet = new Button();
+                sweet.Height = 100;
+                sweet.Width = 100;
+                sweet.Content = "Sweet";
+                SpecialButtons.Children.Add(sweet);
+                sweet.Click += new RoutedEventHandler(OnAddSweet);
 
-            order.Add(tea); 
+                lemon = new Button();
+                lemon.Height = 100;
+                lemon.Width = 100;
+                lemon.Content = "AddLemon";
+                SpecialButtons.Children.Add(lemon);
+                lemon.Click += new RoutedEventHandler(OnAddLemonTea);
+
+                order.Add(tea);
+            }            
         }
 
         /// <summary>
@@ -180,7 +256,15 @@ namespace PointOfSale
         /// <param name="args">contains the event data</param>
         void OnAddSweet(object sender, RoutedEventArgs args)
         {
-            tea.Sweet = true;
+            if (combo != null)
+            {
+                tea.Sweet = true;
+                combo.Drink = tea;
+            }
+            else
+            {
+                tea.Sweet = true;
+            }            
         }
 
         /// <summary>
@@ -190,19 +274,35 @@ namespace PointOfSale
         /// <param name="args">contains the event data</param>
         private void SelectJava(object sender, RoutedEventArgs args)
         {
-            order = DataContext as Order;
-            drink = new JurrasicJava();
-            jj = (JurrasicJava)drink;
-            SpecialButtons.Children.Clear();
-            decaf = new RadioButton();
-            decaf.Height = 100;
-            decaf.Width = 100;
-            decaf.Content = "Decaf";
-            SpecialButtons.Children.Add(decaf);
-            decaf.Click += new RoutedEventHandler(OnAddDecaf);
+            if (combo != null)
+            {
+                order = DataContext as Order;
+                drink = new JurrasicJava();
+                jj = (JurrasicJava)drink;
+                combo.Drink = jj;
+                SpecialButtons.Children.Clear();
+                decaf = new RadioButton();
+                decaf.Height = 100;
+                decaf.Width = 100;
+                decaf.Content = "Decaf";
+                SpecialButtons.Children.Add(decaf);
+                decaf.Click += new RoutedEventHandler(OnAddDecaf);
+            }
+            else
+            {
+                order = DataContext as Order;
+                drink = new JurrasicJava();
+                jj = (JurrasicJava)drink;
+                SpecialButtons.Children.Clear();
+                decaf = new RadioButton();
+                decaf.Height = 100;
+                decaf.Width = 100;
+                decaf.Content = "Decaf";
+                SpecialButtons.Children.Add(decaf);
+                decaf.Click += new RoutedEventHandler(OnAddDecaf);
 
-            order.Add(jj);                
-                        
+                order.Add(jj);
+            }                       
         }
 
         /// <summary>
@@ -212,7 +312,15 @@ namespace PointOfSale
         /// <param name="args">contains the event data</param>
         void OnAddDecaf(object sender, RoutedEventArgs args)
         {
-            jj.DecafCoffee();
+            if (combo != null)
+            {
+                jj.DecafCoffee();
+                combo.Drink = jj;
+            }
+            else
+            {
+                jj.DecafCoffee();
+            }            
         }
 
         /// <summary>
@@ -222,18 +330,35 @@ namespace PointOfSale
         /// <param name="args">contains the event data</param>
         private void SelectSodasaurus(object sender, RoutedEventArgs args)
         {
-            order = DataContext as Order;
-            drink = new Sodasaurus();
-            soda = (Sodasaurus)drink;
-            SpecialButtons.Children.Clear();
-            Button flavor = new Button();
-            flavor.Height = 100;
-            flavor.Width = 100;
-            flavor.Content = "Flavor";
-            SpecialButtons.Children.Add(flavor);
-            flavor.Click += new RoutedEventHandler(SelectFlavor);
-                
-            order.Add(soda);
+            if (combo != null)
+            {
+                order = DataContext as Order;
+                drink = new Sodasaurus();
+                soda = (Sodasaurus)drink;
+                combo.Drink = soda;
+                SpecialButtons.Children.Clear();
+                Button flavor = new Button();
+                flavor.Height = 100;
+                flavor.Width = 100;
+                flavor.Content = "Flavor";
+                SpecialButtons.Children.Add(flavor);
+                flavor.Click += new RoutedEventHandler(SelectFlavor);
+            }
+            else
+            {
+                order = DataContext as Order;
+                drink = new Sodasaurus();
+                soda = (Sodasaurus)drink;
+                SpecialButtons.Children.Clear();
+                Button flavor = new Button();
+                flavor.Height = 100;
+                flavor.Width = 100;
+                flavor.Content = "Flavor";
+                SpecialButtons.Children.Add(flavor);
+                flavor.Click += new RoutedEventHandler(SelectFlavor);
+
+                order.Add(soda);
+            }            
         }
 
         /// <summary>
@@ -243,7 +368,14 @@ namespace PointOfSale
         /// <param name="args">contains the event data</param>
         void SelectFlavor(object sender, RoutedEventArgs args)
         {
-            NavigationService.Navigate(new FlavorSelection(soda));
+            if (combo != null)
+            {
+                NavigationService.Navigate(new FlavorSelection(combo));
+            }
+            else
+            {
+                NavigationService.Navigate(new FlavorSelection(soda));
+            }            
         }
 
         /// <summary>
@@ -265,7 +397,14 @@ namespace PointOfSale
         /// <param name="args"></param>
         private void OnDone(object sender, RoutedEventArgs args)
         {
-            ReturnToMenuCatagorySelection(sender, args);
+            if (combo == null)
+            {
+                ReturnToMenuCatagorySelection(sender, args);
+            }      
+            if (combo != null)
+            {
+                NavigationService.Navigate(new CustomizeCombo(combo));
+            }
         }
         
 

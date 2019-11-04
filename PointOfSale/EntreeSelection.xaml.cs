@@ -35,7 +35,16 @@ namespace PointOfSale
         public EntreeSelection()
         {
             InitializeComponent();
-            //entree = e;
+            
+        }
+
+        /// <summary>
+        /// initialize form 
+        /// </summary>
+        public EntreeSelection(Entree e)
+        {
+            InitializeComponent();
+            entree = e;
         }
 
         /// <summary>

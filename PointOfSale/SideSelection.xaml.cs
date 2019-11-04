@@ -31,6 +31,9 @@ namespace PointOfSale
         /// </summary>
         public Side side { get; set; }
 
+        /// <summary>
+        /// combo backing variable dealt with in this class
+        /// </summary>
         CretaceousCombo combo;
 
         /// <summary>
@@ -43,6 +46,10 @@ namespace PointOfSale
             this.side = side;
         }
 
+        /// <summary>
+        /// constructor that deals with the combo selection
+        /// </summary>
+        /// <param name="combo">combo object passed in</param>
         public SideSelection(CretaceousCombo combo)
         {
             InitializeComponent();

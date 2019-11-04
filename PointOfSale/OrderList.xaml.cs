@@ -52,7 +52,7 @@ namespace PointOfSale
                 NavigationService?.Navigate(new SideSelection(side));
             }
 
-            /*
+            
             if (OrderItems.SelectedItem is Entree entree)
             {
                 NavigationService?.Navigate(new EntreeSelection(entree));
@@ -62,7 +62,7 @@ namespace PointOfSale
             {
                 NavigationService?.Navigate(new DrinkSelection(drink));
             }
-            */
+            
         }
 
         /// <summary>
