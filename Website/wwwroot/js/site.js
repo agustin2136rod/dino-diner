@@ -15,3 +15,21 @@ function CombosClick() {
     var Combos = document.getElementById("Combos")
     Combos.style.display = "block";
 }
+
+function EntreesClick() {
+    Clear();
+    var Entrees = document.getElementById("Entrees")
+    Entrees.style.display = "block";
+}
+
+function SidesClick() {
+    Clear();
+    var Sides = document.getElementById("Sides")
+    Sides.style.display = "block";
+}
+
+function DrinksClick() {
+    Clear();
+    var Drinks = document.getElementById("Drinks")
+    Drinks.style.display = "block";
+}
