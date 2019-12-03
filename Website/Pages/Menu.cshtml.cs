@@ -35,32 +35,32 @@ namespace Website.Pages
         public List<string> ingredient { get; set; } = new List<string>();
 
         [BindProperty]
-        public string searchBar { get; set; }
+        public string search { get; set; }
 
         [BindProperty]
         public float? maxPrice { get; set; }
 
         [BindProperty]
-        public float? minPrice { get; set; }
+        public List<string> menuCategory { get; set; } = new List<string>();
 
         [BindProperty]
-        public List<string> category { get; set; } = new List<string>();
+        public float? minPrice { get; set; }
 
-        public void CategoryFilter(List<string> c)
+        public void CategoryFilter(List<string> menuCategory)
         {
-            if(!category.Contains("Entree"))
+            if(!menuCategory.Contains("Entree"))
             {
                 EntreePossibilities = new List<IMenuItem>();
             }
-            if (!category.Contains("Side"))
+            if (!menuCategory.Contains("Side"))
             {
                 SidePossibilities = new List<IMenuItem>();
             }
-            if (!category.Contains("Drink"))
+            if (!menuCategory.Contains("Drink"))
             {
                 DrinkPossibilities = new List<IMenuItem>();
             }
-            if (!category.Contains("Combo"))
+            if (!menuCategory.Contains("Combo"))
             {
                 ComboPossibilities = new List<IMenuItem>();
             }
@@ -88,6 +88,7 @@ namespace Website.Pages
                 check = false;
                 for (int i = 0; i < item.Ingredients.Count; i++)
                 {
+
                     if (ingredients.Contains(item.Ingredients[i]))
                     {
                         check = true;
@@ -134,17 +135,17 @@ namespace Website.Pages
             SidePossibilities = Menu.AvailableSides;
             ComboPossibilities = Menu.AvailableCombos;
 
-            if (category.Count != 0)
+            if (menuCategory.Count != 0)
             {
-                CategoryFilter(category);
+                CategoryFilter(menuCategory);
             }
 
-            if (searchBar != null)
+            if (search != null)
             {
-                DrinkPossibilities = Search(DrinkPossibilities, searchBar);
-                EntreePossibilities = Search(EntreePossibilities, searchBar);
-                SidePossibilities = Search(SidePossibilities, searchBar);
-                ComboPossibilities = Search(ComboPossibilities, searchBar);
+                DrinkPossibilities = Search(DrinkPossibilities, search);
+                EntreePossibilities = Search(EntreePossibilities, search);
+                SidePossibilities = Search(SidePossibilities, search);
+                ComboPossibilities = Search(ComboPossibilities, search);
             }
 
             if (ingredient.Count != 0)
