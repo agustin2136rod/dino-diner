@@ -33,3 +33,4 @@ function DrinksClick() {
     var Drinks = document.getElementById("Drinks")
     Drinks.style.display = "block";
 }
+
