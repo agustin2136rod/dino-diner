@@ -86,7 +86,7 @@ namespace Website.Pages
             foreach (IMenuItem item in items)
             {
                 check = false;
-                for (int i = 0; i < item.Ingredients.Count; i++)
+                for (int i = 0; i < ingredients.Count; i++)
                 {
 
                     if (ingredients.Contains(item.Ingredients[i]))
