@@ -167,7 +167,9 @@ namespace DinoDiner.Menu
         }
 
        
-
+        /// <summary>
+        /// adding every ingredient from every item into a list. No repeats
+        /// </summary>
         public List<string> Ingredients
         {
             get
