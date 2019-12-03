@@ -117,3 +117,15 @@
     </ul>
 </div>
 
+<div class="checkList">
+	<h4>Excluding Ingredients</h4>
+	@foreach (string ingredients in @Model.Menu.Ingredients) 
+	{
+		<label>
+			<input value="@ingredients" name="ingredient" checked="@Model.ingredient.Contains(ingredient) "type="checkbox" />
+			@ingredients
+		</label>
+	}
+
+</div>
+

@@ -15,3 +15,37 @@ body {
 .MenuItems {
     display: none;
 }
+
+#listItems {
+    font-size: 35px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+
+.content {
+    flex-direction: row;
+    display: flex;
+    width: 100vw;
+        justify-content: space-between;
+}
+
+.checkbox-list {
+    display: flex;
+    flex-direction: column;
+}
+
+form {
+    padding: 50px;
+    flex-grow: 0;
+    background-color: dimgray;
+    width: 300px;
+}
+
+form #commands {
+        right: 0;
+        position: absolute;
+}
+
+.menu-item {
+    border-b
+}

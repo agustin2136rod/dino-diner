@@ -60,11 +60,11 @@ namespace DinoDiner.Menu
         /// <summary>
         /// property that gets the available entrees at Dino DIner
         /// </summary>
-        public List<Entree> AvailableEntrees
+        public List<IMenuItem> AvailableEntrees
         {
             get
             {
-                List<Entree> list = new List<Entree>();
+                List<IMenuItem> list = new List<IMenuItem>();
                 Brontowurst wurst = new Brontowurst();
                 DinoNuggets nuggs = new DinoNuggets();
                 PrehistoricPBJ sandwich = new PrehistoricPBJ();
@@ -87,11 +87,11 @@ namespace DinoDiner.Menu
         /// <summary>
         /// Property that gets the available sides at dino diner
         /// </summary>
-        public List<Side> AvailableSides
+        public List<IMenuItem> AvailableSides
         {
             get
             {
-                List<Side> list = new List<Side>();
+                List<IMenuItem> list = new List<IMenuItem>();
                 Fryceritops fry = new Fryceritops();
                 MeteorMacAndCheese mac = new MeteorMacAndCheese();
                 MezzorellaSticks sticks = new MezzorellaSticks();
@@ -107,11 +107,11 @@ namespace DinoDiner.Menu
         /// <summary>
         /// property that gets the available drinks at dino diner
         /// </summary>
-        public List<Drink> AvailableDrinks
+        public List<IMenuItem> AvailableDrinks
         {
             get
             {
-                List<Drink> list = new List<Drink>();
+                List<IMenuItem> list = new List<IMenuItem>();
                 JurrasicJava jj = new JurrasicJava();
                 Sodasaurus soda = new Sodasaurus();
                 Tyrannotea tea = new Tyrannotea();
@@ -127,11 +127,11 @@ namespace DinoDiner.Menu
         /// <summary>
         /// property that gets all available combos at dino diner and returns them in a list
         /// </summary>
-        public List<CretaceousCombo> AvailableCombos
+        public List<IMenuItem> AvailableCombos
         {
             get
             {
-                List<CretaceousCombo> list = new List<CretaceousCombo>();
+                List<IMenuItem> list = new List<IMenuItem>();
                 Brontowurst wurst = new Brontowurst();
                 DinoNuggets nuggs = new DinoNuggets();
                 PrehistoricPBJ sandwich = new PrehistoricPBJ();
@@ -164,6 +164,27 @@ namespace DinoDiner.Menu
         public override string ToString()
         {
             return $"Jurassic Java \n Cola Sodasaurus \n Orange Sodasaurus \n Vanilla Sodasaurus \n Chocolate Sodasaurus \n RootBeet Sodasaurus \n Cherry Sodasaurus \n Lime Sodasaurus \n Decaf Jurassic Java \n Sweet Tyrannotea \n Tyrannotea Water \n Brontowurst \n Dino-Nuggets \n Prehistoric PB&J \n Pterodactyl Wings \n Steakosaurus Burger \n T-Rex King Burger \n Veloci-Wrap \n Friceritops \n Meteor Mac and Cheese \n Mezzorella Sticks \n Triceritots";
+        }
+
+       
+
+        public List<string> Ingredients
+        {
+            get
+            {
+                List<string> ingredients = new List<string>();
+                foreach (IMenuItem item in AvailableMenuItems)
+                {
+                    for (int i = 0; i < item.Ingredients.Count; i++)
+                    {
+                        if (!ingredients.Contains(item.Ingredients[i]))
+                        {
+                            ingredients.Add(item.Ingredients[i]);
+                        }
+                    }
+                }
+                return ingredients;
+            }
         }
     }
 }
